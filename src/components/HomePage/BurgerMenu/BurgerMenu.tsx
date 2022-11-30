@@ -1,5 +1,5 @@
-import Burger from '../assets/Burger.svg';
-import './BurgerMenu.css';
+import Burger from '../../../UI/Icons/Burger.svg';
+import './BurgerMenu.scss';
 
 export default function BurgerMenu() {
   return (

@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import Nav from '../Nav/Nav';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
-import './Header.css';
-
-import Logo from '../assets/Logo.svg';
+import Logo from '../../../UI/Icons/Logo.svg';
+import './Header.scss';
 
 function getWindowSize() {
   const { innerWidth, innerHeight } = window;

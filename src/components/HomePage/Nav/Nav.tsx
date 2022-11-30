@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import './Nav.css';
+import './Nav.scss';
 
-import Favourites from '../assets/Favourites.svg';
-import ShoppingBag from '../assets/ShoppingBag.svg';
+import Favourites from '../../../UI/Icons/Favourites.svg';
+import ShoppingBag from '../../../UI/Icons/ShoppingBag.svg';
 
 export default function Nav() {
   return (

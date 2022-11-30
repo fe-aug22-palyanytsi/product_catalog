@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { HomePage } from './components/HomePage/HomePage';
 import { PhonesPage } from './components/PhonesPage/PhonesPage';
+import './App.css';
 
 const App: React.FC = () => (
   <div className="App">

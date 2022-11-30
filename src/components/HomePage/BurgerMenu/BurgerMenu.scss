@@ -1,0 +1,19 @@
+.burger-menu {
+  position: absolute;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #E2E6E9;
+  transition: border 0.3s;
+
+  &:hover {
+    border: 1px solid #313237;
+  }
+  
+  &_icon {
+    padding: 10px;
+  }
+}

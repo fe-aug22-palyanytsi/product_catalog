@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const CatalogPage = () => {
+export const PhonesPage = () => {
   return (
     <div>
-      catalog
+      phones
     </div>
   );
 };

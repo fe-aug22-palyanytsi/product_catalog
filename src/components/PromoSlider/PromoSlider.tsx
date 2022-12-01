@@ -7,6 +7,10 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/navigation';
 import './PromoSlider.scss';
 
+import iphone14Img from '../../assets/img/promo-slider-1.jpg';
+import iphone12Img from '../../assets/img/promo-slider-2.jpg';
+import iphone12NavyImg from '../../assets/img/promo-slider-3.jpg';
+
 export const PromoSlider = () => {
   return (
     <div className="promo-slider">
@@ -29,25 +33,22 @@ export const PromoSlider = () => {
         <SwiperSlide>
           <img
             className="promo-slider__image"
-            // eslint-disable-next-line max-len
-            src="https://cyberstate.kz/wp-content/uploads/2022/09/camera_iphone-14-pro.jpg"
+            src={iphone14Img}
             alt="IPhone 14 Pro Max"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="promo-slider__image"
-            // eslint-disable-next-line max-len
-            src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020.jpg.landing-big_2x.jpg"
+            src={iphone12Img}
             alt="IPhone 12 Pro Max"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="promo-slider__image"
-            // eslint-disable-next-line max-len
-            src="https://cdn.wccftech.com/wp-content/uploads/2020/07/iPhone-12-Navy-Blue-color-option-4.jpg"
-            alt="IPhone 13 Pro Max"
+            src={iphone12NavyImg}
+            alt="IPhone 12 Pro Max Navy"
           />
         </SwiperSlide>
       </Swiper>

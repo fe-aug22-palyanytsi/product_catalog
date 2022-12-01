@@ -1,0 +1,74 @@
+@import "./variables.scss";
+
+.title {
+  color: $color-primary;
+
+  font-weight: 800;
+
+  &--xl {
+    font-size: 48px;
+    line-height: 117%;
+    letter-spacing: -0.01em;
+
+    @media (max-width: $mobile) {
+      font-size: 32px;
+    }
+  }
+
+  &--l {
+    font-size: 32px;
+    line-height: 128%;
+    letter-spacing: -0.01em;
+
+    @media (max-width: $mobile) {
+      font-size: 22px;
+    }
+  }
+
+  &--m {
+    font-size: 22px;
+    line-height: 140%;
+
+    @media (max-width: $mobile) {
+      font-size: 20px;
+    }
+  }
+
+  &--s {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 130%;
+
+    @media (max-width: $mobile) {
+      font-size: 16px;
+    }
+  }
+}
+
+.text {
+  color: $color-primary;
+
+  font-size: 14px;
+  line-height: 150%;
+
+  &--primary {
+    font-weight: 400;
+  }
+
+  &--button {
+    font-weight: 700;
+  }
+
+  &--secondary {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &--uppercased {
+    font-size: 12px;
+    line-height: 92%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}

@@ -1,6 +1,7 @@
 {
   "name": "product_catalog",
   "version": "0.1.0",
+  "homepage": "https://fe-aug22-palyanytsi.github.io/product_catalog/",
   "private": true,
   "dependencies": {
     "@types/node": "^16.18.3",

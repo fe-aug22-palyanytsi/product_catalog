@@ -4,9 +4,9 @@ import cn from 'classnames';
 import Favourite from '../Icons/Favourite.svg';
 import RedFavourite from '../Icons/RedFavourite.svg';
 
-import './AddButton.scss';
+import './Button.scss';
 
-export const AddButton = () => {
+export const Button = () => {
   const [isSelected, setIsSelected] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
 

@@ -1,4 +1,4 @@
-import { AddButton } from '../AddButton';
+import { Button } from '../UI/Button/Button';
 import './ProductCard.scss';
 import { Phone } from '../../types/Phone';
 
@@ -59,7 +59,7 @@ export const ProductCard: React.FC<Props> = ({ phoneInfo }) => {
           </div>
         </div>
 
-        <AddButton />
+        <Button />
       </div>
     </div>
   );

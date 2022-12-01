@@ -1,5 +1,6 @@
 import './Footer.scss';
 
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/Icons/Logo.svg';
 import ArrowTop from '../../assets/img/Icons/ArrowTop.svg';
 
@@ -15,19 +16,20 @@ export const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer__inner">
-
-          <a href="/" className="footer__logo">
+          <Link to="/" className="footer__logo">
             <img
               src={Logo}
               alt="Logo icon"
               className="footer__image"
             />
-          </a>
+          </Link>
 
           <ul className="list-reset footer__menu">
             <li className="footer__menu-item">
               <a
-                href="https://github.com"
+                href="https://github.com/fe-aug22-palyanytsi"
+                target="_blank"
+                rel="noreferrer"
                 className="link-reset footer__menu-link"
               >
                 Github
@@ -35,15 +37,15 @@ export const Footer = () => {
             </li>
 
             <li className="footer__menu-item">
-              <a href="/contacts" className="link-reset footer__menu-link">
+              <Link to="/contacts" className="link-reset footer__menu-link">
                 Contacts
-              </a>
+              </Link>
             </li>
 
             <li className="footer__menu-item">
-              <a href="/rights" className="link-reset footer__menu-link">
+              <Link to="/rights" className="link-reset footer__menu-link">
                 rights
-              </a>
+              </Link>
             </li>
           </ul>
 

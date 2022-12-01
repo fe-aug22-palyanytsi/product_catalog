@@ -1,12 +1,18 @@
-import { AddButton } from '../AddButton';
-import './ProductCard.scss';
+import React, { useState } from 'react';
+import { Button } from '../UIcomponents/Button';
 import { Phone } from '../../types/Phone';
+
+import './ProductCard.scss';
+
+import Favourite from '../../assets/Icons/Favourite.svg';
+import RedFavourite from '../../assets/Icons/RedFavourite.svg';
 
 type Props = {
   phoneInfo: Phone;
+  buttonName: string;
 };
 
-export const ProductCard: React.FC<Props> = ({ phoneInfo }) => {
+export const ProductCard: React.FC<Props> = ({ phoneInfo, buttonName }) => {
   const {
     image,
     phoneId,
@@ -16,6 +22,13 @@ export const ProductCard: React.FC<Props> = ({ phoneInfo }) => {
     capacity,
     ram,
   } = phoneInfo;
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  const handleFavourite = (event: React.MouseEvent) => {
+    event.preventDefault();
+
+    setIsFavourite(!isFavourite);
+  };
 
   return (
     <div className="productCard">
@@ -59,7 +72,23 @@ export const ProductCard: React.FC<Props> = ({ phoneInfo }) => {
           </div>
         </div>
 
-        <AddButton />
+        <div className="productCard_buttons">
+          <Button buttonName={buttonName} />
+
+          <button
+            type="button"
+            onClick={handleFavourite}
+            className="productCard_favourites"
+          >
+            <img
+              src={isFavourite
+                ? RedFavourite
+                : Favourite}
+              alt="Favourite"
+              className="productCard_heart"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );

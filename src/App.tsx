@@ -1,8 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { HomePage } from './components/HomePage/HomePage';
-import { PhonesPage } from './components/PhonesPage/PhonesPage';
+import { HomePage } from './pages/HomePage/HomePage';
+import { PhonesPage } from './pages/PhonesPage/PhonesPage';
 import './App.css';
+
+import 'normalize.css';
+import './assets/styles/main.scss';
 
 const App: React.FC = () => (
   <div className="App">

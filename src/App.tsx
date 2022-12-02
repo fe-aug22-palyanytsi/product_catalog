@@ -6,6 +6,7 @@ import './styles/main.scss';
 
 import { HomePage } from './pages/HomePage/HomePage';
 import { PhonesPage } from './pages/PhonesPage/PhonesPage';
+
 import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Footer } from './components/Footer/Footer';

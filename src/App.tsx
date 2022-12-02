@@ -4,7 +4,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { PhonesPage } from './pages/PhonesPage/PhonesPage';
 
 import 'normalize.css';
-import './assets/styles/main.scss';
+import './styles/main.scss';
 
 import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';

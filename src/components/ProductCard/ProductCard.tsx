@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '../UIcomponents/Button';
+import { Button } from '../UI/Button';
 import { Phone } from '../../types/Phone';
 
 import './ProductCard.scss';

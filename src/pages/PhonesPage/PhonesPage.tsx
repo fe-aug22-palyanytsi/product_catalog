@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { getProductsByQuery } from '../../api/products';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
 import { PhoneList } from '../../components/PhonesList/PhoneList';
@@ -24,11 +25,19 @@ const perPageOptions = [
 ];
 
 export const PhonesPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesLength, setPhonesLength] = useState(0);
-  const [sortType, setSortType] = useState('newest');
-  const [perPage, setPerPage] = useState('all');
-  const [page, setPage] = useState(1);
+  const [sortType, setSortType] = useState(
+    searchParams.get('sortType') || 'newest',
+  );
+  const [perPage, setPerPage] = useState(
+    searchParams.get('perPage') || 'all',
+  );
+  const [page, setPage] = useState(
+    (searchParams.get('page') && Number(searchParams.get('page'))) || 1,
+  );
+  const [error, setError] = useState(null);
 
   const handleOnSortSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortType(event.target.value);
@@ -48,14 +57,33 @@ export const PhonesPage = () => {
 
   const getPhones = async () => {
     const query = `?sort=${sortType}&page=${page}&perPage=${perPage}`;
-    const products = await getProductsByQuery(query);
 
-    setPhones(products.phones);
-    setPhonesLength(products.length);
+    try {
+      const products = await getProductsByQuery(query);
+
+      setPhones(products.phones);
+      setPhonesLength(products.length);
+    } catch (err: any) {
+      // eslint-disable-next-line no-console
+      console.log(error, err);
+      setError(err);
+    }
   };
 
   useEffect(() => {
     getPhones();
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (sortType !== 'newest' || page !== 1 || perPage !== 'all') {
+      setSearchParams({
+        sortType,
+        perPage,
+        page: String(page),
+      });
+    } else {
+      setSearchParams({});
+    }
   }, [sortType, perPage, page]);
 
   return (
@@ -70,7 +98,7 @@ export const PhonesPage = () => {
         </h1>
 
         <div className="phones-page__quantity">
-          <ItemsQuantity amount={71} itemName="models" />
+          <ItemsQuantity amount={phonesLength} itemName="models" />
         </div>
 
         <div className="phones-page__selects">

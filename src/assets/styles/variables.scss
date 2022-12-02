@@ -2,11 +2,9 @@ $mobile: 640px;
 $tablet: 1200px;
 $container-width: 1140px + 40px;
 
-// Fonts
 $ff: Mont, sans-serif;
 $fz-text: 14px;
 
-// Colors
 $color-primary: #313237;
 $color-secondary: #89939a;
 $color-submarine: #b4bdc4;
@@ -15,3 +13,5 @@ $color-athens-gray: #fafbfc;
 $color-white: #fff;
 $color-red: #eb5757;
 $color-green: #27ae60;
+
+$hover-transition-duration: 0.3s;

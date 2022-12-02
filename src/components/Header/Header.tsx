@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 import { Nav } from '../Nav/Nav';
 import { BurgerMenu } from '../BurgerMenu';
 
-import Logo from '../../assets/Icons/Logo.svg';
-import Burger from '../../assets/Icons/Burger.svg';
-import Cross from '../../assets/Icons/Cross.svg';
-import Favourite from '../../assets/Icons/Favourite.svg';
-import ShoppingBag from '../../assets/Icons/ShoppingBag.svg';
+import Logo from '../../assets/img/Icons/Logo.svg';
+import Burger from '../../assets/img/Icons/Burger.svg';
+import Cross from '../../assets/img/Icons/Cross.svg';
+import Favourite from '../../assets/img/Icons/Favourite.svg';
+import ShoppingBag from '../../assets/img/Icons/ShoppingBag.svg';
 import './Header.scss';
 
 export const Header = () => {
@@ -18,7 +18,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="header_left">
         <a href="/" className="header_logo">
           <img src={Logo} alt="Logo" />
@@ -79,6 +79,6 @@ export const Header = () => {
           setIsMenuOpen={setIsMenuOpen}
         />
       </div>
-    </div>
+    </header>
   );
 };

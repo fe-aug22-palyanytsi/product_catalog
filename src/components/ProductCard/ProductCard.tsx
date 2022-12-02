@@ -4,8 +4,8 @@ import { Phone } from '../../types/Phone';
 
 import './ProductCard.scss';
 
-import Favourite from '../../assets/Icons/Favourite.svg';
-import RedFavourite from '../../assets/Icons/RedFavourite.svg';
+import Favourite from '../../assets/img/Icons/Favourite.svg';
+import RedFavourite from '../../assets/img/Icons/RedFavourite.svg';
 
 type Props = {
   phoneInfo: Phone;

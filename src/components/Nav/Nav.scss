@@ -1,4 +1,4 @@
-@import '../../assets/styles/main.scss';
+@import "../../styles/main.scss";
 
 .nav {
   display: flex;
@@ -10,7 +10,7 @@
     margin: 0;
     display: flex;
   }
-  
+
   &_item {
     display: flex;
     height: 48px;
@@ -31,7 +31,7 @@
       height: 64px;
     }
   }
-  
+
   &_link {
     display: inline-block;
     text-decoration: none;
@@ -42,7 +42,6 @@
     font-weight: 800;
     transition: color 0.3s;
 
-      
     &:hover {
       color: $color-primary;
 

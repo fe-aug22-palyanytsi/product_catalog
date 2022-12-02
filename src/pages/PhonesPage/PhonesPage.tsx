@@ -75,15 +75,21 @@ export const PhonesPage = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    if (sortType !== 'newest' || page !== 1 || perPage !== 'all') {
-      setSearchParams({
-        sortType,
-        perPage,
-        page: String(page),
-      });
-    } else {
-      setSearchParams({});
+    const params = {};
+
+    if (sortType !== 'newest') {
+      Object.assign(params, { sortType });
     }
+
+    if (page !== 1) {
+      Object.assign(params, { page });
+    }
+
+    if (perPage !== 'all') {
+      Object.assign(params, { perPage });
+    }
+
+    setSearchParams(params);
   }, [sortType, perPage, page]);
 
   return (

@@ -1,17 +1,103 @@
+@import '../../assets/styles/main.scss';
+
 .header {
   position: sticky;
   display: flex;
-  height: 64px;
+  height: 48px;
+  flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid #E2E6E9;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-parcelein;
+
+  @include onDesktop {
+    height: 64px;
+  }
+
+  &_left {
+    display: flex;
+    align-items: center;
+  }
 
   &_logo {
-    margin-left: 24px;
-    margin-right: 48px;
+    margin-left: 16px;
+    margin-right: 32px;
+    width: 64px;
     transition: transform 0.3s;
+
+    @include onDesktop {
+      margin-left: 24px;
+      margin-right: 48px;
+      width: 80px;
+    }
 
     &:hover {
       transform: scale(1.05);
+    }
+  }
+
+  &_right {
+    display: flex;
+  }
+  
+  &_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    position: relative;
+    box-shadow: -1px 0 0 $color-submarine;
+    transition: color 0.3s;
+
+    @include onDesktop {
+      height: 64px;
+      width: 64px;
+    }
+  
+    &:hover:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      bottom: 0;
+      background-color: $color-primary;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+  }
+  
+  &_button {
+    display: block;
+  }
+  
+  &_icon {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.3)
+    }
+  }
+
+  &_burger {
+    background-color: $color-white;
+    border: none;
+    border-bottom: 1px solid $color-parcelein;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &_deskview {
+    display: none;
+
+    @include onTablet {
+      display: flex;
     }
   }
 }

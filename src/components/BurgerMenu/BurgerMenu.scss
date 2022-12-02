@@ -1,19 +1,67 @@
-.burger-menu {
-  position: absolute;
-  right: 0;
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #E2E6E9;
-  transition: border 0.3s;
+@import '../../assets/styles/main.scss';
 
-  &:hover {
-    border: 1px solid #313237;
+.burger-menu {
+  position: relative;
+
+  &_nav {
+    margin: 0;
+    overflow-y: scroll;
+    list-style: none;
+    position: fixed;
+    top: 49px;
+    background: white;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    width: 0;
+
+    &.showMenu {
+      width: 100vw;
+    }
   }
   
-  &_icon {
-    padding: 10px;
+  &_item {
+    margin: 32px auto 0;
+    display: flex;
+    position: relative;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    display: block;
+  }
+  
+  &_link {
+    display: block;
+    text-decoration: none;
+    color: $color-secondary;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 11px;
+    font-weight: 800;
+    transition: color 0.3s;
+    position: relative;
+  
+        
+    &:hover {
+      color: $color-primary;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 16px;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background-color: $color-primary;
+        border-radius: 8px;
+        transition: all 0.3s;
+      }
+    }
   }
 }

@@ -1,11 +1,7 @@
 const PRODUCTS_PATH = `${process.env.REACT_APP_API_PATH}/products`;
 
-export const getProducts = async () => {
-  // eslint-disable-next-line no-console
-  console.log(PRODUCTS_PATH);
-
-  // eslint-disable-next-line max-len
-  const response = await fetch('https://stalwart-dolphin-d2ae39.netlify.app/.netlify/functions/server/products');
+export const getProductsByQuery = async (query: string) => {
+  const response = await fetch(`${PRODUCTS_PATH}${query}`);
   const products = await response.json();
 
   return products;

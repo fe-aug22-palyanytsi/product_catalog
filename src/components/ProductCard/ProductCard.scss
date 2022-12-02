@@ -1,18 +1,21 @@
-@import "../../styles/main.scss";
+@import "../../styles/variables.scss";
 
 .productCard {
-  background-color: $color-white;
-
   display: flex;
   flex-direction: column;
+
+  height: 100%;
+
   padding: 0 32px 32px;
   border: 1px solid $color-parcelein;
+
+  background-color: $color-white;
 
   &_image {
     width: 100%;
     height: 100%;
 
-    max-width: 196px;
+    max-width: 200px;
     max-height: 200px;
 
     object-fit: contain;
@@ -59,7 +62,6 @@
   }
 
   &_line {
-    width: 208px;
     height: 0px;
     border: 1px solid $color-parcelein;
   }
@@ -93,13 +95,14 @@
   &_buttons {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   &_favourites {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
+    min-width: 40px;
     height: 40px;
     background-color: $color-white;
 

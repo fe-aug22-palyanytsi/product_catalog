@@ -1,4 +1,5 @@
-@import "../../styles/main.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .nav {
   display: flex;
@@ -33,7 +34,10 @@
   }
 
   &_link {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     text-decoration: none;
     color: $color-secondary;
     text-transform: uppercase;

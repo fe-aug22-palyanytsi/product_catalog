@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SelectOptions } from '../../../types/SelectOptions';
+
+import './Select.scss';
 
 type Props = {
   options: SelectOptions;
   defaultValue: string;
-  selectLable: string;
+  selectLabel: string;
+  selected: string;
+  handleOnSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 export const CustomSelect: React.FC<Props> = ({
   defaultValue,
   options,
-  selectLable,
+  selectLabel,
+  selected,
+  handleOnSelect,
 }) => {
-  const [sortingType, setSortingType] = useState('newest');
-
-  const handleOnSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortingType(event.target.value);
-  };
-
   return (
-    <label>
-      <span style={{ display: 'block' }}>{selectLable}</span>
+    <label className="select">
+      <span className="select__label text text--secondary">{selectLabel}</span>
       <select
         data-cy="userSelect"
-        className="select container"
+        className="select__field"
         id="select"
         onChange={handleOnSelect}
-        value={sortingType}
+        value={selected}
       >
         <option value="0" disabled>
           {defaultValue}

@@ -1,0 +1,19 @@
+@import "../../../styles/variables.scss";
+
+.select {
+  &__label {
+    display: block;
+
+    margin-bottom: 4px;
+    color: $color-secondary;
+  }
+
+  &__field {
+    width: 132px;
+    padding: 10px 12px;
+
+    border: 1px solid $color-submarine;
+
+    cursor: pointer;
+  }
+}

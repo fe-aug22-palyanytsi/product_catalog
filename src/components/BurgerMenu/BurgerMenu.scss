@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import "../../styles/variables.scss";
 
 .burger-menu {
   position: relative;
@@ -25,7 +25,7 @@
       width: 100vw;
     }
   }
-  
+
   &_item {
     margin: 32px auto 0;
     display: flex;
@@ -35,7 +35,7 @@
     cursor: pointer;
     display: block;
   }
-  
+
   &_link {
     display: block;
     text-decoration: none;
@@ -46,8 +46,7 @@
     font-weight: 800;
     transition: color 0.3s;
     position: relative;
-  
-        
+
     &:hover {
       color: $color-primary;
 

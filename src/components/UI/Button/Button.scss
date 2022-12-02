@@ -1,8 +1,8 @@
-@import "../../../styles/main.scss";
+@import "../../../styles/variables.scss";
 
 .addButton {
+  width: 100%;
   height: 40px;
-  width: 160px;
   display: flex;
   align-items: center;
   justify-content: center;

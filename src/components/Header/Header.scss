@@ -1,4 +1,5 @@
-@import "../../styles/main.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .header {
   position: sticky;
@@ -22,7 +23,6 @@
   &_logo {
     margin-left: 16px;
     margin-right: 32px;
-    width: 64px;
     transition: transform 0.3s;
 
     @include onDesktop {

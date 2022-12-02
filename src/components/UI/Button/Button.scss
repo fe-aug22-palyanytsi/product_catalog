@@ -1,54 +1,32 @@
+@import "../../../styles/main.scss";
+
 .addButton {
-  width: 208px;
   height: 40px;
+  width: 160px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 
-  &_main {
-    width: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #313237;
-    color: white;
-    transition: box-shadow 0.3s;
-  
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline: inherit;
-  
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
+  background-color: $color-primary;
+  color: white;
+  transition: box-shadow 0.3s;
 
-    &:hover {
-      box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
-    }
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+
+  &:hover {
+    box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
   }
 
   &_selectedButton {
-    color: #27AE60;
-    background-color: #fff;
-    border: 1px solid #B4BDC4;
-  }
-
-  &_favourites {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    background-color: #fff;
-  
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline: inherit;
-    border: 1px solid #B4BDC4;
-    transition: border 0.3s;
-
-    &:hover {
-      border: 1px solid #313237;
-    }
+    color: #27ae60;
+    background-color: $color-white;
+    border: 1px solid $color-submarine;
   }
 }

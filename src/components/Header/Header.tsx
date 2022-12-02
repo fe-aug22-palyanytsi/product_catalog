@@ -20,9 +20,9 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header_left">
-        <a href="/" className="header_logo">
+        <NavLink to="/" className="header_logo">
           <img src={Logo} alt="Logo" />
-        </a>
+        </NavLink>
 
         <div className="header_deskview">
           <Nav />

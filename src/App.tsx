@@ -10,9 +10,6 @@ import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Footer } from './components/Footer/Footer';
 
-import 'normalize.css';
-import './assets/styles/main.scss';
-
 const App: React.FC = () => (
   <div className="App">
     <Header />
@@ -23,7 +20,7 @@ const App: React.FC = () => (
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
 
-    <Footer /> 
+    <Footer />
   </div>
 );
 

@@ -3,12 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage/HomePage';
 import { PhonesPage } from './pages/PhonesPage/PhonesPage';
 
+import 'normalize.css';
+import './styles/main.scss';
+
 import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Footer } from './components/Footer/Footer';
-
-import 'normalize.css';
-import './styles/main.scss';
 
 const App: React.FC = () => (
   <div className="App">

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.b1489378.css",
-    "main.js": "/product_catalog/static/js/main.309634c8.js",
+    "main.css": "/product_catalog/static/css/main.2ec71f2a.css",
+    "main.js": "/product_catalog/static/js/main.ce3ee463.js",
     "static/media/promo-slider-2.jpg": "/product_catalog/static/media/promo-slider-2.72bd3ad074734a6a1db8.jpg",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.443fc83827bbdd265741a3ec0d34d99a.svg",
     "static/media/promo-slider-3.jpg": "/product_catalog/static/media/promo-slider-3.9d82b562e5e82b29a5e8.jpg",
@@ -11,17 +11,18 @@
     "static/media/promo-slider-1.jpg": "/product_catalog/static/media/promo-slider-1.02313d2d741081c0a796.jpg",
     "static/media/ShoppingBag.svg": "/product_catalog/static/media/ShoppingBag.6b6ebef2b16ee05b847f7de31b994897.svg",
     "static/media/Favourite.svg": "/product_catalog/static/media/Favourite.40718cb9e80841fa0951b9bab9faa235.svg",
+    "static/media/Home.svg": "/product_catalog/static/media/Home.d4c29e4f137b3a79235a5293536d71a0.svg",
     "static/media/RedFavourite.svg": "/product_catalog/static/media/RedFavourite.a50cb178e4751a64f2150e19764fd508.svg",
     "index.html": "/product_catalog/index.html",
     "static/media/Cross.svg": "/product_catalog/static/media/Cross.f9e13926ee9fdb95c99b4956364748f6.svg",
     "static/media/Burger.svg": "/product_catalog/static/media/Burger.7d886604721a2522b7ee9d3609bcd8e8.svg",
     "static/media/ArrowTop.svg": "/product_catalog/static/media/ArrowTop.80e27a8f296e8f6d01b0495743a40009.svg",
     "static/media/promo-slider-arrow.svg": "/product_catalog/static/media/promo-slider-arrow.52b1de8135fb515af2ee.svg",
-    "main.b1489378.css.map": "/product_catalog/static/css/main.b1489378.css.map",
-    "main.309634c8.js.map": "/product_catalog/static/js/main.309634c8.js.map"
+    "main.2ec71f2a.css.map": "/product_catalog/static/css/main.2ec71f2a.css.map",
+    "main.ce3ee463.js.map": "/product_catalog/static/js/main.ce3ee463.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1489378.css",
-    "static/js/main.309634c8.js"
+    "static/css/main.2ec71f2a.css",
+    "static/js/main.ce3ee463.js"
   ]
 }

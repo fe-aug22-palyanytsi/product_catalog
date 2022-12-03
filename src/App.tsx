@@ -6,6 +6,7 @@ import './styles/main.scss';
 
 import { HomePage } from './pages/HomePage/HomePage';
 import { PhonesPage } from './pages/PhonesPage/PhonesPage';
+import { FavouritesPage } from './pages/FavouritesPage';
 
 import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';
@@ -19,6 +20,7 @@ const App: React.FC = () => (
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="phones" element={<PhonesPage />} />
+        <Route path="favourites" element={<FavouritesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>

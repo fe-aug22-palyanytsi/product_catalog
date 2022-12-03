@@ -17,6 +17,12 @@ export const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  if (isMenuOpen) {
+    document.body.setAttribute('style', 'overflow: hidden; position: fixed;');
+  } else {
+    document.body.setAttribute('style', 'overflow: visible; position: static;');
+  }
+
   return (
     <header className="header">
       <div className="header_left">

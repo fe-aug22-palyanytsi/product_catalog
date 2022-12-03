@@ -4,12 +4,12 @@
   display: flex;
   flex-direction: column;
 
-  height: 100%;
-
   padding: 0 32px 32px;
   border: 1px solid $color-parcelein;
-
   background-color: $color-white;
+
+  height: 506px;
+  min-width: 230px;
 
   &_image {
     width: 100%;
@@ -31,7 +31,6 @@
     text-transform: uppercase;
 
     display: inline-block;
-    margin-bottom: 8px;
   }
 
   &_prices {
@@ -43,7 +42,7 @@
   &_prices {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   &_newprice {
@@ -55,7 +54,7 @@
   }
 
   &_oldprice {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 22px;
     line-height: 28px;
     text-decoration-line: line-through;
@@ -71,7 +70,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 16px 0 16px;
+    margin: 8px 0 16px;
   }
 
   &_text {

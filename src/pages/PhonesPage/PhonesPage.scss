@@ -4,6 +4,13 @@
     margin-bottom: 8px;
   }
 
+  &__loader {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    padding-top: 30px;
+  }
+
   &__breadcrumbs {
     margin-bottom: 40px;
   }

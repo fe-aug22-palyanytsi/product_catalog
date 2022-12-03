@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Navigate, useSearchParams } from 'react-router-dom';
 import { getProductsByQuery } from '../../api/products';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
 import { PhoneList } from '../../components/PhonesList/PhoneList';
 import { Pagination } from '../../components/UI/Pagination';
 import { CustomSelect } from '../../components/UI/Select';
 import { Phone } from '../../types/Phone';
-import { scrollToTop } from '../../utils/scrollToTop';
 
 import './PhonesPage.scss';
 
@@ -37,7 +37,8 @@ export const PhonesPage = () => {
   const [page, setPage] = useState(
     (searchParams.get('page') && Number(searchParams.get('page'))) || 1,
   );
-  const [error, setError] = useState(null);
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOnSortSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortType(event.target.value);
@@ -52,21 +53,20 @@ export const PhonesPage = () => {
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
-    scrollToTop();
   };
 
   const getPhones = async () => {
-    const query = `?sort=${sortType}&page=${page}&perPage=${perPage}`;
-
     try {
-      const products = await getProductsByQuery(query);
+      setIsLoading(true);
+
+      const products = await getProductsByQuery(searchParams.toString());
 
       setPhones(products.phones);
       setPhonesLength(products.length);
+      setIsLoading(false);
     } catch (err: any) {
-      // eslint-disable-next-line no-console
-      console.log(error, err);
-      setError(err);
+      setHasError(true);
+      setIsLoading(false);
     }
   };
 
@@ -92,13 +92,22 @@ export const PhonesPage = () => {
     setSearchParams(params);
   }, [sortType, perPage, page]);
 
+  if (hasError) {
+    return (<Navigate to="/not-found" />);
+  }
+
   return (
     <section className="phones-page">
       <div className="container">
-        <div className="phones-page__breadcrumbs text text--secondary">
-          Home - Phones
+        <div className="phones-page__breadcrumbs">
+          <Breadcrumbs
+            breads={[
+              { title: 'home', path: '/' },
+              { title: 'Phones', path: '/phones' },
+            ]}
+          />
         </div>
-        {/* Breadcrumbs path={[{title:Home, path: 'link:path'}]} */}
+
         <h1 className="phones-page__title title title--xl text-reset">
           Mobile phones
         </h1>
@@ -124,18 +133,24 @@ export const PhonesPage = () => {
           />
         </div>
 
-        <div className="phones-page__list">
-          <PhoneList phones={phones} />
-        </div>
+        {isLoading
+          ? <h1 className="title title--xl">Fake Loader</h1>
+          : (
+            <>
+              <div className="phones-page__list">
+                <PhoneList phones={phones} />
+              </div>
 
-        {!Number.isNaN(+perPage) && (
-          <Pagination
-            total={phonesLength}
-            perPage={+perPage}
-            onPageChange={handlePageChange}
-            currentPage={page}
-          />
-        )}
+              {!Number.isNaN(+perPage) && (
+                <Pagination
+                  total={phonesLength}
+                  perPage={+perPage}
+                  onPageChange={handlePageChange}
+                  currentPage={page}
+                />
+              )}
+            </>
+          )}
       </div>
     </section>
   );

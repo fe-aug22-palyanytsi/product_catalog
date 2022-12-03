@@ -13,7 +13,6 @@ export const Loader: React.FC = () => (
       <li />
       <li />
     </ul>
-
     <p className="loader__text title title--m text-reset">Loading...</p>
   </div>
 );

@@ -36,7 +36,14 @@ export const Header = () => {
       </div>
 
       <div className="header_right">
-        <NavLink to="/favourites" className="header_link header_deskview">
+        <NavLink
+          to="/favourites"
+          className={({ isActive }) => (
+            isActive
+              ? 'header_link header_deskview header_link--active'
+              : 'header_link header_deskview'
+          )}
+        >
           <div className="header_button">
             <img
               src={Favourite}
@@ -46,7 +53,14 @@ export const Header = () => {
           </div>
         </NavLink>
 
-        <NavLink to="/shoppingBag" className="header_link  header_deskview">
+        <NavLink
+          to="/shoppingBag"
+          className={({ isActive }) => (
+            isActive
+              ? 'header_link header_deskview header_link--active'
+              : 'header_link header_deskview'
+          )}
+        >
           <div className="header_button">
             <img
               src={ShoppingBag}

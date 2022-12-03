@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { useStorage } from '../../hooks/useStorage';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { PhoneList } from '../../components/PhonesList';
@@ -6,21 +6,23 @@ import { ItemsQuantity } from '../../components/ItemsQuantity';
 import './FavouritesPage.scss';
 
 export const FavouritesPage = () => {
-  const [favourites, setfavourites] = useState(useStorage([], 'Favorite')[0]);
+  const [favourites] = useStorage([], 'Favorite');
 
-  useEffect(() => {
-    const getValue = () => {
-      const storage = localStorage.getItem('Favorite');
+  // const [favourites, setfavourites] = useState(useStorage([], 'Favorite')[0]);
 
-      if (storage) {
-        return JSON.parse(storage);
-      }
+  // useEffect(() => {
+  //   const getValue = () => {
+  //     const storage = localStorage.getItem('Favorite');
 
-      return [];
-    };
+  //     if (storage) {
+  //       return JSON.parse(storage);
+  //     }
 
-    setfavourites(getValue());
-  }, [favourites]);
+  //     return [];
+  //   };
+
+  //   setfavourites(getValue());
+  // }, [favourites]);
 
   return (
     <section className="favourites-page">

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.e9fa7558.css",
+    "main.css": "/product_catalog/static/css/main.740027c6.css",
     "main.js": "/product_catalog/static/js/main.bf756ddd.js",
     "static/media/promo-slider-2.jpg": "/product_catalog/static/media/promo-slider-2.72bd3ad074734a6a1db8.jpg",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.443fc83827bbdd265741a3ec0d34d99a.svg",
@@ -18,11 +18,11 @@
     "static/media/Burger.svg": "/product_catalog/static/media/Burger.7d886604721a2522b7ee9d3609bcd8e8.svg",
     "static/media/ArrowTop.svg": "/product_catalog/static/media/ArrowTop.80e27a8f296e8f6d01b0495743a40009.svg",
     "static/media/promo-slider-arrow.svg": "/product_catalog/static/media/promo-slider-arrow.52b1de8135fb515af2ee.svg",
-    "main.e9fa7558.css.map": "/product_catalog/static/css/main.e9fa7558.css.map",
+    "main.740027c6.css.map": "/product_catalog/static/css/main.740027c6.css.map",
     "main.bf756ddd.js.map": "/product_catalog/static/js/main.bf756ddd.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9fa7558.css",
+    "static/css/main.740027c6.css",
     "static/js/main.bf756ddd.js"
   ]
 }

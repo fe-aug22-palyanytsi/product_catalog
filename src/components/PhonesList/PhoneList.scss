@@ -1,7 +1,21 @@
+@import "../../styles/mixins.scss";
+
 .phone-list {
   gap: 40px 16px;
 
   &__item {
-    grid-column: span 6;
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: span 6;
+    }
+
+    @include onWidthTablet {
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
   }
 }

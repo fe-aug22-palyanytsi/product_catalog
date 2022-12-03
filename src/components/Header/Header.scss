@@ -52,6 +52,21 @@
     box-shadow: -1px 0 0 $color-submarine;
     transition: color 0.3s;
 
+    &--active {
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        bottom: 0;
+        background-color: $color-primary;
+        border-radius: 8px;
+        transition: all 0.3s;
+      }
+    }
+
     @include onDesktop {
       height: 64px;
       width: 64px;

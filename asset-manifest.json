@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.70076a79.css",
-    "main.js": "/product_catalog/static/js/main.5ab22c79.js",
+    "main.css": "/product_catalog/static/css/main.8882afed.css",
+    "main.js": "/product_catalog/static/js/main.66d165b8.js",
     "static/media/promo-slider-2.jpg": "/product_catalog/static/media/promo-slider-2.72bd3ad074734a6a1db8.jpg",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.443fc83827bbdd265741a3ec0d34d99a.svg",
     "static/media/promo-slider-3.jpg": "/product_catalog/static/media/promo-slider-3.9d82b562e5e82b29a5e8.jpg",
@@ -18,11 +18,11 @@
     "static/media/Burger.svg": "/product_catalog/static/media/Burger.7d886604721a2522b7ee9d3609bcd8e8.svg",
     "static/media/ArrowTop.svg": "/product_catalog/static/media/ArrowTop.80e27a8f296e8f6d01b0495743a40009.svg",
     "static/media/promo-slider-arrow.svg": "/product_catalog/static/media/promo-slider-arrow.52b1de8135fb515af2ee.svg",
-    "main.70076a79.css.map": "/product_catalog/static/css/main.70076a79.css.map",
-    "main.5ab22c79.js.map": "/product_catalog/static/js/main.5ab22c79.js.map"
+    "main.8882afed.css.map": "/product_catalog/static/css/main.8882afed.css.map",
+    "main.66d165b8.js.map": "/product_catalog/static/js/main.66d165b8.js.map"
   },
   "entrypoints": [
-    "static/css/main.70076a79.css",
-    "static/js/main.5ab22c79.js"
+    "static/css/main.8882afed.css",
+    "static/js/main.66d165b8.js"
   ]
 }

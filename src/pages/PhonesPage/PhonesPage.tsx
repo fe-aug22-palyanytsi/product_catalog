@@ -7,6 +7,7 @@ import { PhoneList } from '../../components/PhonesList/PhoneList';
 import { Pagination } from '../../components/UI/Pagination';
 import { CustomSelect } from '../../components/UI/Select';
 import { Phone } from '../../types/Phone';
+import { Loader } from '../../components/Loader/Loader';
 
 import './PhonesPage.scss';
 
@@ -134,7 +135,11 @@ export const PhonesPage = () => {
         </div>
 
         {isLoading
-          ? <h1 className="title title--xl">Fake Loader</h1>
+          ? (
+            <div className="phones-page__loader">
+              <Loader />
+            </div>
+          )
           : (
             <>
               <div className="phones-page__list">

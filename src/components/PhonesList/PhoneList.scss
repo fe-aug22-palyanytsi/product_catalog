@@ -1,4 +1,6 @@
 .phone-list {
+  gap: 40px 16px;
+
   &__item {
     grid-column: span 6;
   }

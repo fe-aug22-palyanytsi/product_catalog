@@ -1,6 +1,5 @@
 import React from 'react';
 import cn from 'classnames';
-import { Link } from 'react-router-dom';
 
 import { getNumbers } from '../../../utils/getNumbers';
 
@@ -43,11 +42,12 @@ export const Pagination: React.FC<Props> = ({
           'pagination__item--disabled': isPrevDisabled,
         })}
       >
-        <Link
-          className="pagination__link link-reset"
-          to={`?page=${currentPage - 1}`}
-          aria-disabled={isPrevDisabled}
+        <button
+          type="button"
+          className="pagination__btn btn-reset"
+          disabled={isPrevDisabled}
           onClick={changePageToPrev}
+          aria-label="Move to previous page"
         />
       </li>
 
@@ -59,13 +59,14 @@ export const Pagination: React.FC<Props> = ({
             })}
             key={item}
           >
-            <Link
-              className="pagination__link link-reset"
-              to={`?page=${item}`}
+            <button
+              type="button"
+              className="pagination__btn btn-reset"
               onClick={() => onPageChange(item)}
+              aria-label={`Move to ${item} page`}
             >
               {item}
-            </Link>
+            </button>
           </li>
         ))
       }
@@ -75,11 +76,12 @@ export const Pagination: React.FC<Props> = ({
           'pagination__item--disabled': isNextDisabled,
         })}
       >
-        <Link
-          className="pagination__link link-reset "
-          to={`?page=${currentPage + 1}`}
-          aria-disabled={isNextDisabled}
+        <button
+          type="button"
+          className="pagination__btn btn-reset"
+          disabled={isNextDisabled}
           onClick={changePageToNext}
+          aria-label="Move to previous page"
         />
       </li>
     </ul>

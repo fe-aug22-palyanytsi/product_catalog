@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Navigate, useSearchParams } from 'react-router-dom';
 import { getProductsByQuery } from '../../api/products';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
 import { PhoneList } from '../../components/PhonesList/PhoneList';
 import { Pagination } from '../../components/UI/Pagination';
 import { CustomSelect } from '../../components/UI/Select';
 import { Phone } from '../../types/Phone';
-import { scrollToTop } from '../../utils/scrollToTop';
 
 import './PhonesPage.scss';
 
@@ -24,11 +25,20 @@ const perPageOptions = [
 ];
 
 export const PhonesPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesLength, setPhonesLength] = useState(0);
-  const [sortType, setSortType] = useState('newest');
-  const [perPage, setPerPage] = useState('all');
-  const [page, setPage] = useState(1);
+  const [sortType, setSortType] = useState(
+    searchParams.get('sortType') || 'newest',
+  );
+  const [perPage, setPerPage] = useState(
+    searchParams.get('perPage') || 'all',
+  );
+  const [page, setPage] = useState(
+    (searchParams.get('page') && Number(searchParams.get('page'))) || 1,
+  );
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOnSortSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortType(event.target.value);
@@ -43,34 +53,67 @@ export const PhonesPage = () => {
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
-    scrollToTop();
   };
 
   const getPhones = async () => {
-    const query = `?sort=${sortType}&page=${page}&perPage=${perPage}`;
-    const products = await getProductsByQuery(query);
+    try {
+      setIsLoading(true);
 
-    setPhones(products.phones);
-    setPhonesLength(products.length);
+      const products = await getProductsByQuery(searchParams.toString());
+
+      setPhones(products.phones);
+      setPhonesLength(products.length);
+      setIsLoading(false);
+    } catch (err: any) {
+      setHasError(true);
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
     getPhones();
+  }, [searchParams]);
+
+  useEffect(() => {
+    const params = {};
+
+    if (sortType !== 'newest') {
+      Object.assign(params, { sortType });
+    }
+
+    if (page !== 1) {
+      Object.assign(params, { page });
+    }
+
+    if (perPage !== 'all') {
+      Object.assign(params, { perPage });
+    }
+
+    setSearchParams(params);
   }, [sortType, perPage, page]);
+
+  if (hasError) {
+    return (<Navigate to="/not-found" />);
+  }
 
   return (
     <section className="phones-page">
       <div className="container">
-        <div className="phones-page__breadcrumbs text text--secondary">
-          Home - Phones
+        <div className="phones-page__breadcrumbs">
+          <Breadcrumbs
+            breads={[
+              { title: 'home', path: '/' },
+              { title: 'Phones', path: '/phones' },
+            ]}
+          />
         </div>
-        {/* Breadcrumbs path={[{title:Home, path: 'link:path'}]} */}
+
         <h1 className="phones-page__title title title--xl text-reset">
           Mobile phones
         </h1>
 
         <div className="phones-page__quantity">
-          <ItemsQuantity amount={71} itemName="models" />
+          <ItemsQuantity amount={phonesLength} itemName="models" />
         </div>
 
         <div className="phones-page__selects">
@@ -90,18 +133,24 @@ export const PhonesPage = () => {
           />
         </div>
 
-        <div className="phones-page__list">
-          <PhoneList phones={phones} />
-        </div>
+        {isLoading
+          ? <h1 className="title title--xl">Fake Loader</h1>
+          : (
+            <>
+              <div className="phones-page__list">
+                <PhoneList phones={phones} />
+              </div>
 
-        {!Number.isNaN(+perPage) && (
-          <Pagination
-            total={phonesLength}
-            perPage={+perPage}
-            onPageChange={handlePageChange}
-            currentPage={page}
-          />
-        )}
+              {!Number.isNaN(+perPage) && (
+                <Pagination
+                  total={phonesLength}
+                  perPage={+perPage}
+                  onPageChange={handlePageChange}
+                  currentPage={page}
+                />
+              )}
+            </>
+          )}
       </div>
     </section>
   );

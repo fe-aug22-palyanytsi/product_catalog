@@ -10,10 +10,16 @@ import RedFavourite from '../../assets/img/Icons/RedFavourite.svg';
 type Props = {
   phoneInfo: Phone;
   buttonName: string;
+  setFavouiteonStorage: (id: number) => void,
 };
 
-export const ProductCard: React.FC<Props> = ({ phoneInfo, buttonName }) => {
+export const ProductCard: React.FC<Props> = ({
+  phoneInfo,
+  buttonName,
+  setFavouiteonStorage,
+}) => {
   const {
+    id,
     image,
     phoneId,
     fullPrice,
@@ -28,6 +34,7 @@ export const ProductCard: React.FC<Props> = ({ phoneInfo, buttonName }) => {
     event.preventDefault();
 
     setIsFavourite(!isFavourite);
+    setFavouiteonStorage(id);
   };
 
   return (

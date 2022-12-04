@@ -19,7 +19,7 @@ export const Breadcrumbs: React.FC<Props> = ({ breads }) => (
       path,
     }) => {
       return (
-        <li className="breadcrumbs__item text text--secondary">
+        <li key={title} className="breadcrumbs__item text text--secondary">
           <Link
             to={path}
             key={path}

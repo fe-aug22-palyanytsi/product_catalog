@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { UserFavouritesProvider } from './FavContext';
+import AppProvider from './context/AppContext';
 
 import 'normalize.css';
 import './styles/main.scss';
@@ -16,36 +16,30 @@ import { Footer } from './components/Footer/Footer';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Header />
+      <AppProvider>
+        <Header />
 
-      <main className="main">
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-          <Route
-            path="phones"
-            element={<PhonesPage />}
-          />
-          <Route
-            path="favourites"
-            element={<FavouritesPage />}
-          />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </main>
-      <Footer />
+        <main className="main">
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePage />}
+            />
+            <Route
+              path="phones"
+              element={<PhonesPage />}
+            />
+            <Route
+              path="favourites"
+              element={<FavouritesPage />}
+            />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </AppProvider>
     </div>
   );
 };
 
-const AppWrapper = () => (
-  <UserFavouritesProvider>
-    <App />
-  </UserFavouritesProvider>
-);
-
-export default AppWrapper;
-
-// export default App;
+export default App;

@@ -1,30 +1,31 @@
-// import { useEffect, useState } from 'react';
-// import { useStorage } from '../../hooks/useStorage';
-import { useContext } from 'react';
+import React from 'react';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { PhoneList } from '../../components/PhonesList';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
+import { AppContext } from '../../context/AppContext';
+import { AppContextType } from '../../types/AppContextType';
 
-import { UserFavourites } from '../../FavContext';
 import './FavouritesPage.scss';
 
 export const FavouritesPage = () => {
-  // const [favourites, setfavourites] = useState(useStorage([], 'Favorite')[0]);
-  const favs = useContext(UserFavourites);
+  const { favList } = React.useContext(AppContext) as AppContextType;
+  // const [workList, setWorkList] = useState(favList);
 
   // useEffect(() => {
-  //   const getValue = () => {
-  //     const storage = localStorage.getItem('Favorite');
+  //   const checkUserData = () => {
+  //     const list = localStorage.getItem('Favorite');
 
-  //     if (storage) {
-  //       return JSON.parse(storage);
+  //     if (list) {
+  //       setWorkList(JSON.parse((list)));
   //     }
-
-  //     return [];
   //   };
 
-  //   setfavourites(getValue());
-  // }, [favourites]);
+  //   window.addEventListener('storage', checkUserData);
+
+  //   return () => {
+  //     window.removeEventListener('storage', checkUserData);
+  //   };
+  // }, []);
 
   return (
     <section className="favourites-page">
@@ -43,11 +44,11 @@ export const FavouritesPage = () => {
         </h1>
 
         <div className="phones-page__quantity">
-          <ItemsQuantity amount={favs.length} itemName="models" />
+          <ItemsQuantity amount={favList.length} itemName="models" />
         </div>
 
         <div className="phones-page__list">
-          <PhoneList phones={favs} />
+          <PhoneList phones={favList} />
         </div>
       </div>
     </section>

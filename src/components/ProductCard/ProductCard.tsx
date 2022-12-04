@@ -6,6 +6,8 @@ import './ProductCard.scss';
 
 import Favourite from '../../assets/img/Icons/Favourite.svg';
 import RedFavourite from '../../assets/img/Icons/RedFavourite.svg';
+import { AppContext } from '../../context/AppContext';
+import { AppContextType } from '../../types/AppContextType';
 
 type Props = {
   phoneInfo: Phone;
@@ -30,10 +32,18 @@ export const ProductCard: React.FC<Props> = ({
     capacity,
     ram,
   } = phoneInfo;
+  const { addItem, removeItem } = React
+    .useContext(AppContext) as AppContextType;
   const [isFavourite, setIsFavourite] = useState(status);
 
   const handleFavourite = (event: React.MouseEvent) => {
     event.preventDefault();
+
+    if (isFavourite) {
+      removeItem(id);
+    } else {
+      addItem(phoneInfo);
+    }
 
     setIsFavourite(!isFavourite);
     setFavouiteonStorage(id);

@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { getNumbers } from '../../../utils/getNumbers';
 
 import './Pagination.scss';
+import { Bullet } from '../Bullet';
 
 interface Props {
   total: number;
@@ -37,14 +38,11 @@ export const Pagination: React.FC<Props> = ({
 
   return (
     <ul className="pagination list-reset">
-      <li
-        className={cn('pagination__item pagination__item--prev', {
-          'pagination__item--disabled': isPrevDisabled,
-        })}
-      >
-        <button
-          type="button"
-          className="pagination__btn btn-reset"
+      <li className="pagination__item pagination__item--prev">
+        <Bullet
+          className={cn('bullet--prev', {
+            'bullet--disabled': isPrevDisabled,
+          })}
           disabled={isPrevDisabled}
           onClick={changePageToPrev}
           aria-label="Move to previous page"
@@ -53,32 +51,25 @@ export const Pagination: React.FC<Props> = ({
 
       {
         paginationItems.map(item => (
-          <li
-            className={cn('pagination__item text text--primary', {
-              'pagination__item--active': item === currentPage,
-            })}
-            key={item}
-          >
-            <button
-              type="button"
-              className="pagination__btn btn-reset"
+          <li className="pagination__item" key={item}>
+            <Bullet
+              className={cn('text text--primary', {
+                'bullet--active': item === currentPage,
+              })}
               onClick={() => onPageChange(item)}
               aria-label={`Move to ${item} page`}
             >
               {item}
-            </button>
+            </Bullet>
           </li>
         ))
       }
 
-      <li
-        className={cn('pagination__item pagination__item--next', {
-          'pagination__item--disabled': isNextDisabled,
-        })}
-      >
-        <button
-          type="button"
-          className="pagination__btn btn-reset"
+      <li className="pagination__item pagination__item--next">
+        <Bullet
+          className={cn('bullet--next', {
+            'bullet--disabled': isNextDisabled,
+          })}
           disabled={isNextDisabled}
           onClick={changePageToNext}
           aria-label="Move to previous page"

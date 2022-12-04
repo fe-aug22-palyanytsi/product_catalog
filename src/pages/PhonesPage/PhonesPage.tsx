@@ -7,6 +7,7 @@ import { PhoneList } from '../../components/PhonesList/PhoneList';
 import { Pagination } from '../../components/UI/Pagination';
 import { CustomSelect } from '../../components/UI/Select';
 import { Phone } from '../../types/Phone';
+import { Loader } from '../../components/Loader/Loader';
 
 import './PhonesPage.scss';
 
@@ -28,8 +29,8 @@ export const PhonesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesLength, setPhonesLength] = useState(0);
-  const [sortType, setSortType] = useState(
-    searchParams.get('sortType') || 'newest',
+  const [sort, setSort] = useState(
+    searchParams.get('sort') || 'newest',
   );
   const [perPage, setPerPage] = useState(
     searchParams.get('perPage') || 'all',
@@ -41,7 +42,7 @@ export const PhonesPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleOnSortSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortType(event.target.value);
+    setSort(event.target.value);
   };
 
   const handleOnPerPageSelect = (
@@ -77,8 +78,8 @@ export const PhonesPage = () => {
   useEffect(() => {
     const params = {};
 
-    if (sortType !== 'newest') {
-      Object.assign(params, { sortType });
+    if (sort !== 'newest') {
+      Object.assign(params, { sort });
     }
 
     if (page !== 1) {
@@ -90,7 +91,7 @@ export const PhonesPage = () => {
     }
 
     setSearchParams(params);
-  }, [sortType, perPage, page]);
+  }, [sort, perPage, page]);
 
   if (hasError) {
     return (<Navigate to="/not-found" />);
@@ -121,7 +122,7 @@ export const PhonesPage = () => {
             selectLabel="Sort by"
             defaultValue="Choose sorting type"
             options={sortOptions}
-            selected={sortType}
+            selected={sort}
             handleOnSelect={handleOnSortSelect}
           />
           <CustomSelect
@@ -134,7 +135,11 @@ export const PhonesPage = () => {
         </div>
 
         {isLoading
-          ? <h1 className="title title--xl">Fake Loader</h1>
+          ? (
+            <div className="phones-page__loader">
+              <Loader />
+            </div>
+          )
           : (
             <>
               <div className="phones-page__list">

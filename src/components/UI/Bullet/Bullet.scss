@@ -1,0 +1,34 @@
+@import "../../../styles/variables.scss";
+
+.bullet {
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid $color-submarine;
+
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  &--prev {
+    background: url("../../../assets/img/Icons/promo-slider-arrow.svg")
+      center/5px 9px no-repeat;
+  }
+
+  &--next {
+    background: url("../../../assets/img/Icons/promo-slider-arrow.svg")
+      center/5px 9px no-repeat;
+
+    transform: rotate(180deg);
+  }
+
+  &--active {
+    color: $color-white;
+    background-color: $color-primary;
+    pointer-events: none;
+  }
+
+  &:disabled,
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

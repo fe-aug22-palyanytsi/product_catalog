@@ -34,6 +34,9 @@ export const PhoneList: React.FC<Props> = ({ phones }) => {
           <ProductCard
             buttonName="Add to cart"
             phoneInfo={phone}
+            status={storage.find(
+              (item: { id: number; }) => item.id === phone.id,
+            )}
             setFavouiteonStorage={setFavouiteonStorage}
           />
         </li>

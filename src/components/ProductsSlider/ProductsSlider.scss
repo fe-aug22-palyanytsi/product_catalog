@@ -1,0 +1,74 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.products-slider {
+  position: relative;
+
+  &__buttons {
+    position: absolute;
+    top: -63px;
+    right: 0;
+  }
+  &__button {
+    &--prev {
+      margin-right: 16px;
+    }
+  }
+}
+
+// .products-swiper-button-prev,
+// .products-swiper-button-next {
+//   display: none;
+// }
+
+// @include onTablet {
+//   .products-swiper-button-prev,
+//   .products-swiper-button-next {
+//     position: absolute;
+
+//     display: block;
+
+//     width: 32px;
+//     height: 100%;
+
+//     margin: 0;
+
+//     background-color: $color-white;
+//     border: 1px solid $color-submarine;
+
+//     transition: background-color 0.3s ease;
+
+//     &:hover {
+//       background-color: $color-parcelein;
+//     }
+
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       width: 5px;
+//       height: 10px;
+//       background: url("../../assets/img/Icons/promo-slider-arrow.svg")
+//         center/contain no-repeat;
+//     }
+//   }
+
+//   .products-swiper-button-prev {
+//     left: 0;
+//     top: 0;
+
+//     &::after {
+//       transform: translate(-50%, -50%);
+//     }
+//   }
+
+//   .products-swiper-button-next {
+//     right: 0;
+//     top: 0;
+
+//     &::after {
+//       transform: translate(-50%, -50%) rotate(180deg);
+//     }
+//   }
+// }

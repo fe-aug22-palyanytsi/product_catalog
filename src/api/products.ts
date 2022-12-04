@@ -6,3 +6,17 @@ export const getProductsByQuery = async (query: string) => {
 
   return products;
 };
+
+export const getNewProducts = async () => {
+  const response = await fetch(`${PRODUCTS_PATH}/new`);
+  const products = await response.json();
+
+  return products;
+};
+
+export const getClosestDiscountProducts = async () => {
+  const response = await fetch(`${PRODUCTS_PATH}/discount`);
+  const products = await response.json();
+
+  return products;
+};

@@ -19,10 +19,9 @@ export const Breadcrumbs: React.FC<Props> = ({ breads }) => (
       path,
     }) => {
       return (
-        <li className="breadcrumbs__item text text--secondary">
+        <li className="breadcrumbs__item text text--secondary" key={path}>
           <Link
             to={path}
-            key={path}
             className="breadcrumbs__link link-reset"
           >
             {title !== 'home'

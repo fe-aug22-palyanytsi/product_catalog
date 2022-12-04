@@ -11,12 +11,14 @@ import RedFavourite from '../../assets/img/Icons/RedFavourite.svg';
 type Props = {
   phoneInfo: Phone;
   buttonName: string;
+  status: boolean;
   setFavouiteonStorage: (id: number) => void,
 };
 
 export const ProductCard: React.FC<Props> = ({
   phoneInfo,
   buttonName,
+  status,
   setFavouiteonStorage,
 }) => {
   const {

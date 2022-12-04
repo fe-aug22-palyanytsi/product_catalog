@@ -6,48 +6,16 @@
   flex-wrap: wrap;
 
   &__item {
-    width: 32px;
-    height: 32px;
-
     margin-right: 8px;
     margin-bottom: 8px;
 
-    border: 1px solid $color-submarine;
-
-    &--prev {
+    &:first-child {
       margin-right: 16px;
-
-      background: url("../../../assets/img/Icons/promo-slider-arrow.svg")
-        center/5px 9px no-repeat;
     }
 
-    &--next {
-      margin-left: 16px;
-
-      background: url("../../../assets/img/Icons/promo-slider-arrow.svg")
-        center/5px 9px no-repeat;
-
-      transform: rotate(180deg);
+    &:last-child {
+      margin-right: 0;
+      margin-left: 8px;
     }
-
-    &--active {
-      color: $color-white;
-      background-color: $color-primary;
-      pointer-events: none;
-    }
-
-    &--disabled {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-  }
-
-  &__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 100%;
-    width: 100%;
   }
 }

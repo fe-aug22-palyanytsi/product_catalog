@@ -6,19 +6,55 @@ export const Nav = () => {
     <nav className="nav">
       <ul className="nav_list">
         <li className="nav_item">
-          <NavLink to="/" className="nav_link">Home</NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (
+              isActive
+                ? 'nav_link nav_link--active'
+                : 'nav_link'
+            )}
+          >
+            Home
+          </NavLink>
         </li>
 
         <li className="nav_item">
-          <NavLink to="/phones" className="nav_link">Phones</NavLink>
+          <NavLink
+            to="/phones"
+            className={({ isActive }) => (
+              isActive
+                ? 'nav_link nav_link--active'
+                : 'nav_link'
+            )}
+          >
+            Phones
+          </NavLink>
         </li>
 
         <li className="nav_item">
-          <NavLink to="/tablets" className="nav_link">Tablets</NavLink>
+          <NavLink
+            to="/tablets"
+            className={({ isActive }) => (
+              isActive
+                ? 'nav_link nav_link--active'
+                : 'nav_link'
+            )}
+          >
+            Tablets
+          </NavLink>
         </li>
 
         <li className="nav_item">
-          <NavLink to="/assessories" className="nav_link">Assessories</NavLink>
+          <NavLink
+            to="/assessories"
+            className={({ isActive }) => (
+              isActive
+                ? 'nav_link nav_link--active'
+                : 'nav_link'
+            )}
+          >
+            Assessories
+          </NavLink>
         </li>
       </ul>
     </nav>

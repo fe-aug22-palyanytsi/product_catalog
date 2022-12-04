@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Button } from '../UI/Button';
 import { Phone } from '../../types/Phone';
+import { UserFavourites } from '../../context/Context';
 
 import './ProductCard.scss';
 
@@ -28,14 +29,15 @@ export const ProductCard: React.FC<Props> = ({
     capacity,
     ram,
   } = phoneInfo;
-  const [isFavourite, setIsFavourite] = useState(false);
+  const { favourites } = useContext(UserFavourites);
 
   const handleFavourite = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    setIsFavourite(!isFavourite);
     setFavouiteonStorage(id);
   };
+
+  const isFavourite = !!favourites.find(phone => phone.id === id);
 
   return (
     <div className="productCard">

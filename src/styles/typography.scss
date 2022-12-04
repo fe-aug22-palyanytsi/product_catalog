@@ -65,6 +65,13 @@
     line-height: 15px;
   }
 
+  &--countFavorites {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 10px;
+    color: $color-parcelein;
+  }
+
   &--uppercased {
     font-size: 12px;
     line-height: 92%;

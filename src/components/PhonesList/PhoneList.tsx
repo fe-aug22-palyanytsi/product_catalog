@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Phone } from '../../types/Phone';
 import { ProductCard } from '../ProductCard';
-import { useStorage } from '../../hooks/useStorage';
+// import { useStorage } from '../../hooks/useStorage';
+import { UserFavourites } from '../../context/Context';
 
 import './PhoneList.scss';
 
@@ -10,19 +11,19 @@ type Props = {
 };
 
 export const PhoneList: React.FC<Props> = ({ phones }) => {
-  const [storage, setStorage] = useStorage([], 'Favorite');
+  const { favourites, setFavourites } = useContext(UserFavourites);
 
   const setFavouiteonStorage = (id: number) => {
-    if (storage.find((phone: Phone) => phone.id === id)) {
-      const filtredStorageList = storage.filter(
+    if (favourites.find((phone: Phone) => phone.id === id)) {
+      const filtredStorageList = favourites.filter(
         (phone: Phone) => phone.id !== id,
       );
 
-      setStorage(filtredStorageList);
+      setFavourites(filtredStorageList);
     } else {
       const findNewPhone = phones.find((phone: Phone) => phone.id === id);
 
-      setStorage([...storage, findNewPhone]);
+      setFavourites([...favourites, findNewPhone] as Phone[]);
     }
   };
 

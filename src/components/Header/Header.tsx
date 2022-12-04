@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav } from '../Nav/Nav';
 import { BurgerMenu } from '../BurgerMenu';
@@ -9,9 +9,20 @@ import Cross from '../../assets/img/Icons/Cross.svg';
 import Favourite from '../../assets/img/Icons/Favourite.svg';
 import ShoppingBag from '../../assets/img/Icons/ShoppingBag.svg';
 import './Header.scss';
+import { UserFavourites } from '../../context/Context';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { favourites } = useContext(UserFavourites);
+  const [count, setCount] = useState(0);
+
+  const setCounter = () => {
+    const favouritesLength = favourites.length;
+
+    setCount(favouritesLength);
+  };
+
+  useEffect(setCounter, [favourites]);
 
   const handleToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,7 +42,20 @@ export const Header = () => {
 
       <div className="header_right">
         <NavLink to="/favourites" className="header_link header_deskview">
-          <div className="header_button">
+          <div className="header_button ">
+            { !!count && (
+              <div className="
+              header_button__favourite--Icon
+              "
+              >
+                <span className="
+                header_button__favorite--counter text-reset text--countFavorites
+                "
+                >
+                  {count}
+                </span>
+              </div>
+            )}
             <img
               src={Favourite}
               alt="Favourite"

@@ -1,26 +1,30 @@
-import { useEffect, useState } from 'react';
-import { useStorage } from '../../hooks/useStorage';
+// import { useEffect, useState } from 'react';
+// import { useStorage } from '../../hooks/useStorage';
+import { useContext } from 'react';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { PhoneList } from '../../components/PhonesList';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
+
+import { UserFavourites } from '../../FavContext';
 import './FavouritesPage.scss';
 
 export const FavouritesPage = () => {
-  const [favourites, setfavourites] = useState(useStorage([], 'Favorite')[0]);
+  // const [favourites, setfavourites] = useState(useStorage([], 'Favorite')[0]);
+  const favs = useContext(UserFavourites);
 
-  useEffect(() => {
-    const getValue = () => {
-      const storage = localStorage.getItem('Favorite');
+  // useEffect(() => {
+  //   const getValue = () => {
+  //     const storage = localStorage.getItem('Favorite');
 
-      if (storage) {
-        return JSON.parse(storage);
-      }
+  //     if (storage) {
+  //       return JSON.parse(storage);
+  //     }
 
-      return [];
-    };
+  //     return [];
+  //   };
 
-    setfavourites(getValue());
-  }, [favourites]);
+  //   setfavourites(getValue());
+  // }, [favourites]);
 
   return (
     <section className="favourites-page">
@@ -39,11 +43,11 @@ export const FavouritesPage = () => {
         </h1>
 
         <div className="phones-page__quantity">
-          <ItemsQuantity amount={favourites.length} itemName="models" />
+          <ItemsQuantity amount={favs.length} itemName="models" />
         </div>
 
         <div className="phones-page__list">
-          <PhoneList phones={favourites} />
+          <PhoneList phones={favs} />
         </div>
       </div>
     </section>

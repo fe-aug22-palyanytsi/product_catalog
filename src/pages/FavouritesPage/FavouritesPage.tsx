@@ -1,28 +1,11 @@
-// import { useEffect, useState } from 'react';
-import { useStorage } from '../../hooks/useStorage';
+import { useContext } from 'react';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { PhoneList } from '../../components/PhonesList';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
-import './FavouritesPage.scss';
+import { UserFavourites } from '../../context/Context';
 
 export const FavouritesPage = () => {
-  const [favourites] = useStorage([], 'Favorite');
-
-  // const [favourites, setfavourites] = useState(useStorage([], 'Favorite')[0]);
-
-  // useEffect(() => {
-  //   const getValue = () => {
-  //     const storage = localStorage.getItem('Favorite');
-
-  //     if (storage) {
-  //       return JSON.parse(storage);
-  //     }
-
-  //     return [];
-  //   };
-
-  //   setfavourites(getValue());
-  // }, [favourites]);
+  const { favourites } = useContext(UserFavourites);
 
   return (
     <section className="favourites-page">
@@ -35,7 +18,6 @@ export const FavouritesPage = () => {
             ]}
           />
         </div>
-
         <h1 className="favourites-page__title title title--xl text-reset">
           Favourites
         </h1>

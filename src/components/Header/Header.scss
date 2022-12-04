@@ -88,6 +88,28 @@
 
   &_button {
     display: block;
+    position: relative;
+
+    &__favourite--Icon {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $color-red;
+      border:1px solid $color-parcelein;
+      position: absolute;
+      top: -65%;
+      left: 75%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+    }
+
+    &__favorite--counter {
+      display: inline-block;
+    }
   }
 
   &_icon {

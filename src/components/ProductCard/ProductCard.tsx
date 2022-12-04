@@ -11,15 +11,13 @@ import RedFavourite from '../../assets/img/Icons/RedFavourite.svg';
 type Props = {
   phoneInfo: Phone;
   buttonName: string;
-  status: boolean;
-  setFavouiteonStorage: (id: number) => void,
+  phones: Phone[],
 };
 
 export const ProductCard: React.FC<Props> = ({
   phoneInfo,
   buttonName,
-  status,
-  setFavouiteonStorage,
+  phones,
 }) => {
   const {
     id,
@@ -31,12 +29,22 @@ export const ProductCard: React.FC<Props> = ({
     capacity,
     ram,
   } = phoneInfo;
-  const { favourites } = useContext(UserFavourites);
+  const { favourites, setFavourites } = useContext(UserFavourites);
 
   const handleFavourite = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    setFavouiteonStorage(id);
+    if (favourites.find((phone: Phone) => phone.id === id)) {
+      const filtredStorageList = favourites.filter(
+        (phone: Phone) => phone.id !== id,
+      );
+
+      setFavourites(filtredStorageList);
+    } else {
+      const findNewPhone = phones.find((phone: Phone) => phone.id === id);
+
+      setFavourites([...favourites, findNewPhone] as Phone[]);
+    }
   };
 
   const isFavourite = !!favourites.find(phone => phone.id === id);

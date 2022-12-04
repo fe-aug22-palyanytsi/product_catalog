@@ -84,10 +84,7 @@ export const ProductSlider: React.FC<Props> = ({
                 <ProductCard
                   phoneInfo={product}
                   buttonName="Add to cart"
-                  status={false}
-                  setFavouiteonStorage={(id: number) => (
-                    id
-                  )}
+                  phones={products}
                 />
               </SwiperSlide>
             ))}

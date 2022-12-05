@@ -46,14 +46,14 @@ export const Nav = () => {
 
         <li className="nav_item">
           <NavLink
-            to="/assessories"
+            to="/accessories"
             className={({ isActive }) => (
               isActive
                 ? 'nav_link nav_link--active'
                 : 'nav_link'
             )}
           >
-            Assessories
+            Accessories
           </NavLink>
         </li>
       </ul>

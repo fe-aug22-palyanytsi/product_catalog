@@ -1,0 +1,23 @@
+@import "../../styles/mixins.scss";
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+    @include onTablet {
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 16px;
+      }
+    }
+  }
+}

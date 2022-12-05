@@ -49,13 +49,17 @@ export const Header = () => {
       </div>
 
       <div className="header_right">
-        <NavLink to="/favourites" className="header_link header_deskview">
+        <NavLink
+          to="/favourites"
+          className={({ isActive }) => (
+            isActive
+              ? 'header_link header_deskview header_link--active'
+              : 'header_link header_deskview'
+          )}
+        >
           <div className="header_button ">
             { !!countFavourites && (
-              <div className="
-              header_button__favourite--Icon
-              "
-              >
+              <div className="header_button__favourite--Icon">
                 <span className="
                 header_button__favorite--counter text-reset text--countFavorites
                 "
@@ -72,7 +76,14 @@ export const Header = () => {
           </div>
         </NavLink>
 
-        <NavLink to="/shoppingBag" className="header_link  header_deskview">
+        <NavLink
+          to="/shoppingBag"
+          className={({ isActive }) => (
+            isActive
+              ? 'header_link header_deskview header_link--active'
+              : 'header_link header_deskview'
+          )}
+        >
           <div className="header_button ">
             { !!countShop && (
               <div className="

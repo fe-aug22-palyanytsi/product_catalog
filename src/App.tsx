@@ -11,10 +11,10 @@ import { FavouritesPage } from './pages/FavouritesPage/FavouritesPage';
 import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Footer } from './components/Footer/Footer';
-import { UserFavouritesProvider } from './context/Context';
+import { UserContextProvider } from './context/Context';
 
 const App: React.FC = () => (
-  <UserFavouritesProvider>
+  <UserContextProvider>
     <div className="App">
       <Header />
 
@@ -28,7 +28,7 @@ const App: React.FC = () => (
       </main>
       <Footer />
     </div>
-  </UserFavouritesProvider>
+  </UserContextProvider>
 );
 
 export default App;

@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { PhoneList } from '../../components/PhonesList';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
-import { UserFavourites } from '../../context/Context';
+import { UserContext } from '../../context/Context';
 
 import './FavouritesPage.scss';
 
 export const FavouritesPage = () => {
-  const { favourites } = useContext(UserFavourites);
+  const { favourites } = useContext(UserContext);
 
   return (
     <section className="favourites-page">

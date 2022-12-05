@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import './Button.scss';
 
 type Props = {
   buttonName: string;
+  handleShop: () => void;
+  isSelected: boolean;
 };
 
-export const Button: React.FC<Props> = ({ buttonName }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
+export const Button: React.FC<Props> = ({
+  buttonName,
+  handleShop,
+  isSelected,
+}) => {
   const handleClick = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    setIsSelected(!isSelected);
+    handleShop();
   };
 
   return (

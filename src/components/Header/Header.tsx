@@ -9,20 +9,28 @@ import Cross from '../../assets/img/Icons/Cross.svg';
 import Favourite from '../../assets/img/Icons/Favourite.svg';
 import ShoppingBag from '../../assets/img/Icons/ShoppingBag.svg';
 import './Header.scss';
-import { UserFavourites } from '../../context/Context';
+import { UserContext } from '../../context/Context';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { favourites } = useContext(UserFavourites);
-  const [count, setCount] = useState(0);
+  const { favourites, shop } = useContext(UserContext);
+  const [countFavourites, setCountFavourites] = useState(0);
+  const [countShop, setCountShop] = useState(0);
 
-  const setCounter = () => {
+  const setCounterFavourites = () => {
     const favouritesLength = favourites.length;
 
-    setCount(favouritesLength);
+    setCountFavourites(favouritesLength);
   };
 
-  useEffect(setCounter, [favourites]);
+  const setCounterShop = () => {
+    const shopLength = shop.length;
+
+    setCountShop(shopLength);
+  };
+
+  useEffect(setCounterShop, [shop]);
+  useEffect(setCounterFavourites, [favourites]);
 
   const handleToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -43,7 +51,7 @@ export const Header = () => {
       <div className="header_right">
         <NavLink to="/favourites" className="header_link header_deskview">
           <div className="header_button ">
-            { !!count && (
+            { !!countFavourites && (
               <div className="
               header_button__favourite--Icon
               "
@@ -52,7 +60,7 @@ export const Header = () => {
                 header_button__favorite--counter text-reset text--countFavorites
                 "
                 >
-                  {count}
+                  {countFavourites}
                 </span>
               </div>
             )}
@@ -65,7 +73,20 @@ export const Header = () => {
         </NavLink>
 
         <NavLink to="/shoppingBag" className="header_link  header_deskview">
-          <div className="header_button">
+          <div className="header_button ">
+            { !!countShop && (
+              <div className="
+              header_button__favourite--Icon
+              "
+              >
+                <span className="
+                header_button__favorite--counter text-reset text--countFavorites
+                "
+                >
+                  {countShop}
+                </span>
+              </div>
+            )}
             <img
               src={ShoppingBag}
               alt="ShoppingBag"

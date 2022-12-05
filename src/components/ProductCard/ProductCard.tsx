@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button } from '../UI/Button';
 import { Phone } from '../../types/Phone';
-import { UserFavourites } from '../../context/Context';
+import { UserContext } from '../../context/Context';
 
 import './ProductCard.scss';
 
@@ -29,7 +29,12 @@ export const ProductCard: React.FC<Props> = ({
     capacity,
     ram,
   } = phoneInfo;
-  const { favourites, setFavourites } = useContext(UserFavourites);
+  const {
+    favourites,
+    setFavourites,
+    shop,
+    setShop,
+  } = useContext(UserContext);
 
   const handleFavourite = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -47,7 +52,22 @@ export const ProductCard: React.FC<Props> = ({
     }
   };
 
+  const handleShop = () => {
+    if (shop.find((phone: Phone) => phone.id === id)) {
+      const filtredStorageList = shop.filter(
+        (phone: Phone) => phone.id !== id,
+      );
+
+      setShop(filtredStorageList);
+    } else {
+      const findNewPhone = phones.find((phone: Phone) => phone.id === id);
+
+      setShop([...shop, findNewPhone] as Phone[]);
+    }
+  };
+
   const isFavourite = !!favourites.find(phone => phone.id === id);
+  const isSelected = !!shop.find(phone => phone.id === id);
 
   return (
     <div className="productCard">
@@ -92,7 +112,11 @@ export const ProductCard: React.FC<Props> = ({
         </div>
 
         <div className="productCard_buttons">
-          <Button buttonName={buttonName} />
+          <Button
+            buttonName={buttonName}
+            handleShop={handleShop}
+            isSelected={isSelected}
+          />
 
           <button
             type="button"

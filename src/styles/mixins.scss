@@ -22,3 +22,14 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin square($_side) {
+  width: $_side;
+  height: $_side;
+}
+
+@mixin flexAlignment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

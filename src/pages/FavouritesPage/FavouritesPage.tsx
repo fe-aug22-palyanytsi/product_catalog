@@ -4,6 +4,8 @@ import { PhoneList } from '../../components/PhonesList';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
 import { UserFavourites } from '../../context/Context';
 
+import './FavouritesPage.scss';
+
 export const FavouritesPage = () => {
   const { favourites } = useContext(UserFavourites);
 

@@ -1,0 +1,14 @@
+.category {
+  min-height: 508px;
+  background-color: #FFF;
+  &_title {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+  }
+  &_wrapper {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+}

@@ -46,7 +46,7 @@ export const ProductSlider: React.FC<Props> = ({
 
   if (isError) {
     return (
-      <h2 className="title title-l">
+      <h2 className="title title-l title--red">
         Wow, some error has occurred! Try to reload the page
       </h2>
     );

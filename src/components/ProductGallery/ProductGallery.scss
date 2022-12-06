@@ -9,9 +9,12 @@
   }
 
   &__main {
-    flex: 0 0 85%;
-    width: 85%;
     margin-bottom: 24px;
+
+    @include onTablet {
+      flex: 0 0 85%;
+      width: 85%;
+    }
   }
 
   &__main-img {

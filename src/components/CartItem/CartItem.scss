@@ -52,9 +52,19 @@
     width: 80px;
     height: 80px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-right: 16px;
+    justify-content: space-between;
+    width: 433px;
+    margin-right: 24px;
+  }
+  
+  &_phoneImage {
+    @include flexAlignment;
+    width: 66px;
+  }
+
+  &__image {
+    height: 66px;
   }
 
   &__image {
@@ -63,6 +73,8 @@
   }
 
   &_description {
+    display: block;
+    width: 336px;
     text-transform: uppercase;
     font-weight: 400;
     font-size: 14px;
@@ -82,8 +94,7 @@
   }
 
   &_controller {
-    display: flex;
-    align-items: center;
+    display: block;
     width: 96px;
     margin-right: 54px;
 
@@ -92,7 +103,7 @@
     }
 
     @include onDesktop {
-      margin-right: 64px;
+      // margin-right: 64px;
     }
   }
 

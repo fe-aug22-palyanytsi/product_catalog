@@ -30,6 +30,8 @@ export const ProductCard: React.FC<Props> = ({
     ram,
   } = phoneInfo;
   const {
+    setTotalPoduct,
+    totalProduct,
     favourites,
     setFavourites,
     shop,
@@ -59,10 +61,12 @@ export const ProductCard: React.FC<Props> = ({
       );
 
       setShop(filtredStorageList);
+      setTotalPoduct(filtredStorageList);
     } else {
       const findNewPhone = phones.find((phone: Phone) => phone.id === id);
 
       setShop([...shop, findNewPhone] as Phone[]);
+      setTotalPoduct([...totalProduct, findNewPhone] as Phone[]);
     }
   };
 

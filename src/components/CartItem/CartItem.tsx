@@ -75,9 +75,19 @@ export const CartItem: React.FC<Props> = ({ phoneInfo }) => {
           />
         </div>
 
-        <p className="cartItem_description">
-          {`${phoneId.split('-').join(' ')} (iMT9G2FS/A)`}
-        </p>
+        <NavLink to="/" className="cartItem_info link-reset">
+          <div className="cartItem_phoneImage">
+            <img
+              src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
+              alt="phone_img"
+              className="cartItem__image"
+            />
+          </div>
+
+          <p className="cartItem_description text">
+            {`${phoneId.split('-').join(' ')} (iMT9G2FS/A)`}
+          </p>
+        </NavLink>
       </div>
 
       <div className="cartItem_right">

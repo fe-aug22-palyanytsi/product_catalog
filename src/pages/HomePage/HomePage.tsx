@@ -11,14 +11,14 @@ export const HomePage = () => {
     <div className="home-page">
       <div className="container">
         <div className="home-page__section">
-          <h1 className="home-page__title title title--xl text-reset">
+          <h1 className="home-page__title title title--xl">
             Welcome to Nice Gadgets store!
           </h1>
           <PromoSlider />
         </div>
 
         <section className="home-page__section">
-          <h2 className="home-page__subtitle title title--l text-reset">
+          <h2 className="home-page__subtitle title title--l">
             Brand new models
           </h2>
           <ProductSlider
@@ -28,14 +28,14 @@ export const HomePage = () => {
         </section>
 
         <section className="home-page__section">
-          <h2 className="home-page__subtitle title title--l text-reset">
+          <h2 className="home-page__subtitle title title--l">
             Shop by category
           </h2>
           <Categories />
         </section>
 
         <section className="home-page__section">
-          <h2 className="home-page__subtitle  title title--l text-reset">
+          <h2 className="home-page__subtitle  title title--l">
             Hot prices
           </h2>
           <ProductSlider

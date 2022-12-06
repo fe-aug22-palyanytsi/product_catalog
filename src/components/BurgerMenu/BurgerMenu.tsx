@@ -13,16 +13,25 @@ type Props = {
 };
 
 export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
-  const { favourites } = useContext(UserContext);
-  const [count, setCount] = useState(0);
+  const { favourites, shop } = useContext(UserContext);
+  const [favCount, setFavCount] = useState(0);
+  const [shopCount, setShopCount] = useState(0);
 
   const setCounter = () => {
     const favouritesLength = favourites.length;
 
-    setCount(favouritesLength);
+    setFavCount(favouritesLength);
+  };
+
+  const setCounterShop = () => {
+    const shopLength = shop.length;
+
+    setShopCount(shopLength);
   };
 
   useEffect(setCounter, [favourites]);
+  useEffect(setCounterShop, [shop]);
+
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
@@ -87,10 +96,10 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
             onClick={() => closeMenu()}
           >
             <div className="burger-menu_button">
-              {!!count && (
+              {!!favCount && (
                 <div className="burger-menu_button__favourite--Icon">
                   <span className="text-reset text--countFavorites">
-                    {count}
+                    {favCount}
                   </span>
                 </div>
               )}
@@ -103,11 +112,18 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
           </NavLink>
 
           <NavLink
-            to="/shoppingBag"
+            to="/cart"
             className="burger-menu_bottom-button"
             onClick={() => closeMenu()}
           >
             <div className="burger-menu_button">
+              {!!shopCount && (
+                <div className="burger-menu_button__favourite--Icon">
+                  <span className="text-reset text--countFavorites">
+                    {shopCount}
+                  </span>
+                </div>
+              )}
               <img
                 src={ShoppingBag}
                 alt="ShoppingBag"

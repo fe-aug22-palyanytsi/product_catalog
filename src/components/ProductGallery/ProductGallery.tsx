@@ -1,10 +1,13 @@
 import React from 'react';
 
+import './ProductGallery.scss';
+
 export const ProductGallery = () => {
   return (
     <div className="product-gallery">
       <div className="product-gallery__main">
         <img
+          className="product-gallery__main-img"
           // eslint-disable-next-line max-len
           src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg"
           alt=""
@@ -17,7 +20,7 @@ export const ProductGallery = () => {
             // eslint-disable-next-line max-len
             src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg"
             alt=""
-            className="product-gallery__image"
+            className="product-gallery__preview"
           />
         </li>
         <li className="product-gallery__item">
@@ -25,7 +28,7 @@ export const ProductGallery = () => {
             // eslint-disable-next-line max-len
             src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg"
             alt=""
-            className="product-gallery__image"
+            className="product-gallery__preview"
           />
         </li>
         <li className="product-gallery__item">
@@ -33,7 +36,7 @@ export const ProductGallery = () => {
             // eslint-disable-next-line max-len
             src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg"
             alt=""
-            className="product-gallery__image"
+            className="product-gallery__preview"
           />
         </li>
         <li className="product-gallery__item">
@@ -41,7 +44,7 @@ export const ProductGallery = () => {
             // eslint-disable-next-line max-len
             src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg"
             alt=""
-            className="product-gallery__image"
+            className="product-gallery__preview"
           />
         </li>
       </ul>

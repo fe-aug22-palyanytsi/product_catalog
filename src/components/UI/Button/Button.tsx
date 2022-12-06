@@ -20,10 +20,14 @@ export const Button: React.FC<Props> = ({
     handleShop();
   };
 
+  const isCheckout = buttonName === 'Checkout';
+
   return (
     <button
       className={cn('addButton', {
+        addButton_checkout_selectedButton: isSelected && isCheckout,
         addButton_selectedButton: isSelected,
+        addButton_checkout: isCheckout,
       })}
       type="button"
       onClick={handleClick}

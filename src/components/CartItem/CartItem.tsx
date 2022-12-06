@@ -1,11 +1,11 @@
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './CartItem.scss';
 import { Phone } from '../../types/Phone';
 
 import Cross from '../../assets/img/Icons/Cross.svg';
 import Minus from '../../assets/img/Icons/Minus.svg';
 import Plus from '../../assets/img/Icons/Plus.svg';
+import { UserContext } from '../../context/Context';
 
 type Props = {
   phoneInfo: Phone;
@@ -13,31 +13,45 @@ type Props = {
 
 export const CartItem: React.FC<Props> = ({ phoneInfo }) => {
   const {
+    id,
     image,
     phoneId,
     price,
   } = phoneInfo;
-  const [count, setCount] = useState(1);
+
+  const { shop, setShop } = useContext(UserContext);
+
+  const [count, setTotalCount] = useState(phoneInfo.count || 1);
+  const [totalAmount, setTotalAmount] = useState(count * price);
 
   const handleClose = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    // deleting from cart logic
+    const filteredShop = shop.filter(item => item.id !== id);
+
+    setShop(filteredShop);
   };
 
   const handleMinus = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    setCount(count - 1);
+    setTotalCount(count - 1);
   };
 
   const handlePlus = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    setCount(count + 1);
+    setTotalCount(count + 1);
   };
 
-  const totalAmount = count * price;
+  useEffect(() => {
+    const shopWithCount = shop.map(item => {
+      return item.id === id ? { ...item, count } : item;
+    });
+
+    setShop(shopWithCount);
+    setTotalAmount(count * price);
+  }, [count]);
 
   return (
     <div className="cartItem">
@@ -53,6 +67,13 @@ export const CartItem: React.FC<Props> = ({ phoneInfo }) => {
             className="cartItem_closeIcon"
           />
         </button>
+        <div className="cartItem_phoneImage">
+          <img
+            src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
+            alt="phone_img"
+            className="cartItem__image"
+          />
+        </div>
 
         <NavLink to="/" className="cartItem_info link-reset">
           <div className="cartItem_phoneImage">

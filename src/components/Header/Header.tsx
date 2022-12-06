@@ -77,7 +77,7 @@ export const Header = () => {
         </NavLink>
 
         <NavLink
-          to="/shoppingBag"
+          to="/cart"
           className={({ isActive }) => (
             isActive
               ? 'header_link header_deskview header_link--active'

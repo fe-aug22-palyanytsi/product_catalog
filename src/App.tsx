@@ -12,6 +12,7 @@ import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Footer } from './components/Footer/Footer';
 import { UserContextProvider } from './context/Context';
+import { Shop } from './pages/Shop';
 
 const App: React.FC = () => (
   <UserContextProvider>
@@ -23,6 +24,7 @@ const App: React.FC = () => (
           <Route path="/" element={<HomePage />} />
           <Route path="phones" element={<PhonesPage />} />
           <Route path="favourites" element={<FavouritesPage />} />
+          <Route path="shoppingBag" element={<Shop />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

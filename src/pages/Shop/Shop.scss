@@ -1,0 +1,43 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+
+.shop {
+    &_container {
+        padding-top: 41px;
+        padding-bottom: 80px;
+    }
+    &_back {
+        width: 47px;
+        display: flex;
+        justify-content: space-between;
+        vertical-align: center;
+        margin-bottom: 16px;
+
+        &--Img {
+            display: block;
+            width: 6px;
+        }
+        &--text {
+            display: block;
+            width: 31px;
+            height: 15px;
+            color: $color-secondary;
+            @include hover(color, $color-primary);
+        }
+    }
+
+    &_title {
+            margin-bottom: 32px;
+    }
+    &_list {
+        margin-bottom: 32px;
+    }
+    &_content {
+        @include onDesktop {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { UserFavourites } from '../../context/Context';
+import { UserContext } from '../../context/Context';
 
 import './BurgerMenu.scss';
 
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
-  const { favourites } = useContext(UserFavourites);
+  const { favourites } = useContext(UserContext);
   const [count, setCount] = useState(0);
 
   const setCounter = () => {
@@ -87,7 +87,7 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
             onClick={() => closeMenu()}
           >
             <div className="burger-menu_button">
-              { !!count && (
+              {!!count && (
                 <div className="burger-menu_button__favourite--Icon">
                   <span className="text-reset text--countFavorites">
                     {count}

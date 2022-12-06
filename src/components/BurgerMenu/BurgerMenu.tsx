@@ -1,6 +1,11 @@
+import { useEffect, useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { UserFavourites } from '../../context/Context';
 
 import './BurgerMenu.scss';
+
+import Favourite from '../../assets/img/Icons/Favourite.svg';
+import ShoppingBag from '../../assets/img/Icons/ShoppingBag.svg';
 
 type Props = {
   isMenuOpen: boolean;
@@ -8,53 +13,110 @@ type Props = {
 };
 
 export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
+  const { favourites } = useContext(UserFavourites);
+  const [count, setCount] = useState(0);
+
+  const setCounter = () => {
+    const favouritesLength = favourites.length;
+
+    setCount(favouritesLength);
+  };
+
+  useEffect(setCounter, [favourites]);
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
+
   return (
     <div className="burger-menu">
-      <ul className={`burger-menu_nav ${isMenuOpen ? 'showMenu' : ''}`}>
-        <li className="burger-menu_item">
-          <NavLink
-            to="/"
-            className="burger-menu_link"
-            onClick={() => closeMenu()}
-          >
-            Home
-          </NavLink>
-        </li>
+      <div className={`burger-menu_page ${isMenuOpen ? 'showMenu' : ''}`}>
+        <ul className="burger-menu_nav">
+          <li className="burger-menu_item">
+            <NavLink
+              to="/"
+              className="burger-menu_link"
+              onClick={() => closeMenu()}
+            >
+              Home
+            </NavLink>
+          </li>
 
-        <li className="burger-menu_item">
-          <NavLink
-            to="/phones"
-            className="burger-menu_link"
-            onClick={() => closeMenu()}
-          >
-            Phones
-          </NavLink>
-        </li>
+          <li className="burger-menu_item">
+            <NavLink
+              to="/phones"
+              className="burger-menu_link"
+              onClick={() => closeMenu()}
+            >
+              Phones
+            </NavLink>
+          </li>
 
-        <li className="burger-menu_item">
-          <NavLink
-            to="/tablets"
-            className="burger-menu_link"
-            onClick={() => closeMenu()}
-          >
-            Tablets
-          </NavLink>
-        </li>
+          <li className="burger-menu_item">
+            <NavLink
+              to="/tablets"
+              className="burger-menu_link"
+              onClick={() => closeMenu()}
+            >
+              Tablets
+            </NavLink>
+          </li>
 
-        <li className="burger-menu_item">
+          <li className="burger-menu_item">
+            <NavLink
+              to="/assessories"
+              className="burger-menu_link"
+              onClick={() => closeMenu()}
+            >
+              Assessories
+            </NavLink>
+          </li>
+        </ul>
+
+        <div className="burger-menu_buttons">
           <NavLink
-            to="/assessories"
-            className="burger-menu_link"
+            to="/favourites"
+            className="burger-menu_bottom-button"
             onClick={() => closeMenu()}
           >
-            Assessories
+            <div className="burger-menu_button">
+              { !!count && (
+                <div className="burger-menu_button__favourite--Icon">
+                  <span className="text-reset text--countFavorites">
+                    {count}
+                  </span>
+                </div>
+              )}
+              <img
+                src={Favourite}
+                alt="Favourite"
+                className="header_icon"
+              />
+            </div>
           </NavLink>
-        </li>
-      </ul>
+
+          <NavLink
+            to="/shoppingBag"
+            className="burger-menu_bottom-button"
+            onClick={() => closeMenu()}
+          >
+            <div className="burger-menu_button">
+              <img
+                src={ShoppingBag}
+                alt="ShoppingBag"
+                className="header_icon"
+              />
+            </div>
+          </NavLink>
+        </div>
+      </div>
     </div>
   );
 };

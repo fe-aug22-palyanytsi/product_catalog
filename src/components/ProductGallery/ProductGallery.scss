@@ -2,7 +2,6 @@
 @import "../../styles/variables.scss";
 
 .product-gallery {
-  flex: 0 0 50%;
   @include onTablet {
     display: flex;
     flex-direction: row-reverse;
@@ -13,10 +12,6 @@
     flex: 0 0 85%;
     width: 85%;
     margin-bottom: 24px;
-  }
-
-  &__images {
-    // flex: 0;
   }
 
   &__main-img {

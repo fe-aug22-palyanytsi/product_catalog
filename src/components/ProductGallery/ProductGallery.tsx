@@ -7,15 +7,19 @@ import 'swiper/scss/navigation';
 
 import './ProductGallery.scss';
 
-const IMAGES = [
-  'img/phones/apple-iphone-11/black/00.jpg',
-  'img/phones/apple-iphone-11/black/01.jpg',
-  'img/phones/apple-iphone-11/black/02.jpg',
-  'img/phones/apple-iphone-11/black/03.jpg',
-  'img/phones/apple-iphone-11/black/04.jpg',
-];
+// const imagePathesStatic = [
+//   'img/phones/apple-iphone-11/black/00.jpg',
+//   'img/phones/apple-iphone-11/black/01.jpg',
+//   'img/phones/apple-iphone-11/black/02.jpg',
+//   'img/phones/apple-iphone-11/black/03.jpg',
+//   'img/phones/apple-iphone-11/black/04.jpg',
+// ];
 
-export const ProductGallery = () => {
+type Props = {
+  imagePathes: Array<string>;
+};
+
+export const ProductGallery: React.FC<Props> = ({ imagePathes }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   return (
@@ -25,12 +29,11 @@ export const ProductGallery = () => {
           spaceBetween={10}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Thumbs]}
-          className="mySwiper2"
         >
-          {IMAGES.map(image => (
-            <SwiperSlide key={image}>
+          {imagePathes.map(path => (
+            <SwiperSlide key={path}>
               <img
-                src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
+                src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${path}`}
                 alt=""
                 className="product-gallery__main-img"
               />
@@ -52,11 +55,11 @@ export const ProductGallery = () => {
             },
           }}
         >
-          {IMAGES.map(image => (
-            <SwiperSlide key={image} className="product-gallery__slide">
+          {imagePathes.map(path => (
+            <SwiperSlide key={path} className="product-gallery__slide">
               <div className="product-gallery__item">
                 <img
-                  src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
+                  src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${path}`}
                   alt=""
                   className="product-gallery__preview"
                 />

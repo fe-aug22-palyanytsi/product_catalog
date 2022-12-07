@@ -23,13 +23,14 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
     setFavCount(favouritesLength);
   };
 
+  useEffect(setCounter, [favourites]);
+
   const setCounterShop = () => {
     const shopLength = shop.length;
 
     setShopCount(shopLength);
   };
 
-  useEffect(setCounter, [favourites]);
   useEffect(setCounterShop, [shop]);
 
   const closeMenu = () => {

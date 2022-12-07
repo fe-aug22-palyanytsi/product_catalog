@@ -1,0 +1,139 @@
+@import '../../styles/variables.scss';
+
+.custom-panel {
+  display: flex;
+  flex-direction: column;
+
+  &_prices {
+    display: flex;
+    align-items: center;
+    margin: 8px 0 16px;
+  }
+
+  &_newprice {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+    color: $color-primary;
+    margin-right: 8px;
+  }
+
+  &_oldprice {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-decoration-line: line-through;
+    color: $color-secondary;
+  }
+
+  &_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  &_favourites {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    background-color: $color-white;
+
+    border: none;
+    padding: 0;
+    margin-left: 8px;
+    cursor: pointer;
+    outline: inherit;
+    border: 1px solid $color-submarine;
+    transition: border 0.3s;
+
+    &:hover {
+      border: 1px solid $color-primary;
+    }
+  }
+}
+
+.custom-panel_colours-list {
+  display: flex;
+}
+
+.custom-panel_colours-background {
+  border-radius: 36px;
+  height: 32px;
+  width: 32px;
+  border: 1px solid #E2E6E9;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    border: 1px solid #B4BDC4;
+  }
+}
+
+.custom-panel_colours-circle {
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  height: 30px;
+  width: 30px;
+}
+
+.custom-panel_lines {
+  border: 1px solid #E2E6E9;
+  margin: 24px 0 24px;
+}
+
+.custom-panel_capacity-list {
+  display: flex;
+}
+
+.custom-panel_capacity-block {
+  height: 32px;
+  border: 1px solid #B4BDC4;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: #313237;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    border: 1px solid #313237;
+  }
+}
+
+.custom-panel_characteristics {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-panel_char {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: $color-secondary;
+  margin-bottom: 8px;
+}
+
+.custom-panel_nums {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: right;
+  color: #313237;
+  margin-bottom: 8px;
+}
+
+.isActive {
+  background-color: #313237;
+  color: #fff;
+}
+
+.isColourSelected {
+  border: 1px solid #313237;
+}

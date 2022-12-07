@@ -1,14 +1,22 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/Context';
 import { Button } from '../UI/Button';
+import { Modal } from '../Modal';
 import './Checkout.scss';
 
 export const Checkout: React.FC = () => {
   const [buttonToggle, setButtonToggle] = useState(false);
-  const { shop, totalProduct } = useContext(UserContext);
+  const { shop, totalProduct, setShop } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setButtonToggle(!buttonToggle);
+
+    setTimeout(() => {
+      navigate('/');
+      setShop([]);
+    }, 2000);
   };
 
   const counterProducts = shop.length;
@@ -25,8 +33,11 @@ export const Checkout: React.FC = () => {
           buttonName="Checkout"
           handleShop={handleToggle}
           isSelected={buttonToggle}
+          isDisabled={!counterProducts}
         />
       </div>
+
+      <Modal isActive={buttonToggle} />
     </div>
   );
 };

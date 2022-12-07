@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Button } from '../UI/Button';
 import { Phone } from '../../types/Phone';
 import { UserContext } from '../../context/Context';
-
 import './ProductCard.scss';
 
 import Favourite from '../../assets/img/Icons/Favourite.svg';
@@ -71,15 +71,19 @@ export const ProductCard: React.FC<Props> = ({
 
   return (
     <div className="productCard">
-      <img
-        src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
-        alt="phone_img"
-        className="productCard_image"
-      />
+      <NavLink to={`/product/${phoneId}`}>
+        <img
+          src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
+          alt="phone_img"
+          className="productCard_image"
+        />
+      </NavLink>
       <div className="productCard_block">
-        <p className="productCard_description">
-          {`${phoneId.split('-').join(' ')} (iMT9G2FS/A)`}
-        </p>
+        <NavLink to={`/product/${phoneId}`}>
+          <p className="productCard_description">
+            {`${phoneId.split('-').join(' ')} (iMT9G2FS/A)`}
+          </p>
+        </NavLink>
         <div className="productCard_prices">
           <p className="productCard_newprice">
             $

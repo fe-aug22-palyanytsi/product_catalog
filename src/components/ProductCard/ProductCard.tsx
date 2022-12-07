@@ -76,7 +76,7 @@ export const ProductCard: React.FC<Props> = ({
   return (
     <div className="productCard">
       <img
-        src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
+        src={`https://raw.githubusercontent.com/fe-aug22-palyanytsi/product_catalog_BE/main/public/${image}`}
         alt="phone_img"
         className="productCard_image"
       />

@@ -112,7 +112,7 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
           </NavLink>
 
           <NavLink
-            to="/cart"
+            to="/shoppingBag"
             className="burger-menu_bottom-button"
             onClick={() => closeMenu()}
           >

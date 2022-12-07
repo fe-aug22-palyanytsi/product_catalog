@@ -7,7 +7,7 @@ import './Checkout.scss';
 
 export const Checkout: React.FC = () => {
   const [buttonToggle, setButtonToggle] = useState(false);
-  const { shop, totalProduct, setShop } = useContext(UserContext);
+  const { shop, totalProduct } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleToggle = () => {
@@ -15,7 +15,6 @@ export const Checkout: React.FC = () => {
 
     setTimeout(() => {
       navigate('/');
-      setShop([]);
     }, 2000);
   };
 

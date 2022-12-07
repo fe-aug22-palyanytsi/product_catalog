@@ -1,4 +1,5 @@
-@import '../../styles/main.scss';
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .cartItem {
   display: flex;
@@ -14,7 +15,7 @@
     width: 100%;
     padding: 24px;
   }
-  
+
   &_left {
     display: flex;
     align-items: center;
@@ -24,9 +25,8 @@
     @include onDesktop {
       margin-bottom: 0;
     }
-
   }
-  
+
   &_closeButton {
     width: auto;
     margin: 0;
@@ -37,7 +37,7 @@
     color: inherit;
     cursor: pointer;
     margin-right: 20px;
-  
+
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
     -webkit-appearance: none;
@@ -47,22 +47,34 @@
       transform: scale(1.3);
     }
   }
-  
+
   &_phoneImage {
     width: 80px;
     height: 80px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-right: 16px;
+    justify-content: space-between;
+    width: 433px;
+    margin-right: 24px;
+  }
+  
+  &_phoneImage {
+    @include flexAlignment;
+    width: 66px;
+  }
+
+  &__image {
+    height: 66px;
   }
 
   &__image {
     width: 66px;
     height: 66px;
   }
-  
+
   &_description {
+    display: block;
+    width: 336px;
     text-transform: uppercase;
     font-weight: 400;
     font-size: 14px;
@@ -73,29 +85,28 @@
       min-width: 336px;
     }
   }
-  
+
   &_right {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  
+
   &_controller {
-    display: flex;
-    align-items: center;
+    display: block;
     width: 96px;
     margin-right: 54px;
-  
+
     @include onTablet {
       right: 54px;
     }
-  
+
     @include onDesktop {
-      margin-right: 64px;
+      // margin-right: 64px;
     }
   }
-  
+
   &_button {
     width: auto;
     margin: 0;
@@ -105,11 +116,11 @@
     outline: 0;
     color: inherit;
     cursor: pointer;
-  
+
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
     -webkit-appearance: none;
-  
+
     width: 32px;
     height: 32px;
     border: 1px solid $color-submarine;
@@ -126,7 +137,7 @@
       border: 1px solid $color-parcelein;
     }
   }
-  
+
   &_count {
     display: flex;
     align-items: center;
@@ -134,7 +145,7 @@
     width: 32px;
     height: 32px;
   }
-  
+
   &_total {
     font-weight: 800;
     font-size: 22px;
@@ -142,5 +153,4 @@
     color: $color-primary;
     margin-right: 24px;
   }
-  
 }

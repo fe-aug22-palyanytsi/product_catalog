@@ -1,0 +1,28 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.checkout {
+    height: 192px;
+    padding: 24px 40px;
+    border: 1px $color-parcelein solid;
+    @include onDesktop {
+        padding: 24px;
+        height: 206x;
+        width: 368px;
+    }
+    &_price {
+        font-size: 32px;
+        font-weight: 800;
+        text-align: center;
+    }
+    &_counter {
+        color: $color-secondary;
+        text-align: center;
+    }
+    &_button {
+        padding-top: 32px;
+        @include onDesktop {
+            padding-top: 49px;
+        }
+    }
+}

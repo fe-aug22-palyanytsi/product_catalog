@@ -1,0 +1,109 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.productCardShop {
+    display: flex;
+    height: 160px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-white;
+    border: 1px $color-parcelein solid;
+    padding: 16px;
+    @include onTablet {
+        flex-direction: row;
+        padding: 0px 27px;
+        height: 128px;
+    }
+    @include onDesktop {
+        width: 752px;
+        padding: 0px 24px;
+    }
+    &_cancel {
+        display: block;
+        margin-right: 26px;
+        -webkit-font-smoothing: inherit;
+        -moz-osx-font-smoothing: inherit;
+        -webkit-appearance: none;
+
+        @include hover(transform, scale(1.3));
+
+        @include onDesktop {
+            margin-right: 35px;
+        }
+    }
+    &_left {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        @include onDesktop {
+
+        }
+    }
+    &_right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        @include onTablet {
+            justify-content: none;
+        }
+    }
+    &_info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 88px;
+        @include onTablet {
+            width: 273px;
+            margin-right: 24px;
+        }
+        @include onDesktop {
+            width: 433px;
+        }
+    }
+    &_image {
+      height: 66px;
+    }
+    &_name {
+        width: 128px;
+        @include onTablet {
+            width: 176px;
+        }
+        @include onDesktop {
+            width: 336px;
+        }
+    }
+    &_counter {
+        display: flex;
+        align-items: center;
+        height: 32px;
+        margin-right: 34px;
+        @include onDesktop {
+            width: 96px;
+        }
+    }
+    &_increase {
+        @include square(32px);
+        @include flexAlignment;
+        border: 1px $color-parcelein solid;
+        @include hover(border, 1px solid $color-primary);
+    }
+    &_amount {
+        @include square(32px);
+        @include flexAlignment;
+    }
+    &_dicrease {
+        @include square(32px);
+        @include flexAlignment;
+        border: 1px $color-parcelein solid;
+        @include hover(border, 1px solid $color-primary);
+    }
+    &_price {
+        font-weight: 800;
+        width: 70px;
+        text-align: right;
+    }
+}

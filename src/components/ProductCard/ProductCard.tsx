@@ -30,6 +30,8 @@ export const ProductCard: React.FC<Props> = ({
     ram,
   } = phoneInfo;
   const {
+    setTotalPoduct,
+    totalProduct,
     favourites,
     setFavourites,
     shop,
@@ -59,10 +61,12 @@ export const ProductCard: React.FC<Props> = ({
       );
 
       setShop(filtredStorageList);
+      setTotalPoduct(filtredStorageList);
     } else {
       const findNewPhone = phones.find((phone: Phone) => phone.id === id);
 
       setShop([...shop, findNewPhone] as Phone[]);
+      setTotalPoduct([...totalProduct, findNewPhone] as Phone[]);
     }
   };
 
@@ -73,11 +77,12 @@ export const ProductCard: React.FC<Props> = ({
     <div className="productCard">
       <NavLink to={`/product/${phoneId}`}>
         <img
-          src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
+          src={`https://raw.githubusercontent.com/fe-aug22-palyanytsi/product_catalog_BE/main/public/${image}`}
           alt="phone_img"
           className="productCard_image"
         />
       </NavLink>
+
       <div className="productCard_block">
         <NavLink to={`/product/${phoneId}`}>
           <p className="productCard_description">

@@ -52,7 +52,11 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
           <li className="burger-menu_item">
             <NavLink
               to="/"
-              className="burger-menu_link"
+              className={({ isActive }) => (
+                isActive
+                  ? 'burger-menu_link burger-menu_link--active'
+                  : 'burger-menu_link'
+              )}
               onClick={() => closeMenu()}
             >
               Home
@@ -62,7 +66,11 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
           <li className="burger-menu_item">
             <NavLink
               to="/phones"
-              className="burger-menu_link"
+              className={({ isActive }) => (
+                isActive
+                  ? 'burger-menu_link burger-menu_link--active'
+                  : 'burger-menu_link'
+              )}
               onClick={() => closeMenu()}
             >
               Phones
@@ -72,7 +80,11 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
           <li className="burger-menu_item">
             <NavLink
               to="/tablets"
-              className="burger-menu_link"
+              className={({ isActive }) => (
+                isActive
+                  ? 'burger-menu_link burger-menu_link--active'
+                  : 'burger-menu_link'
+              )}
               onClick={() => closeMenu()}
             >
               Tablets
@@ -82,7 +94,11 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
           <li className="burger-menu_item">
             <NavLink
               to="/assessories"
-              className="burger-menu_link"
+              className={({ isActive }) => (
+                isActive
+                  ? 'burger-menu_link burger-menu_link--active'
+                  : 'burger-menu_link'
+              )}
               onClick={() => closeMenu()}
             >
               Assessories
@@ -93,7 +109,11 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
         <div className="burger-menu_buttons">
           <NavLink
             to="/favourites"
-            className="burger-menu_bottom-button"
+            className={({ isActive }) => (
+              isActive
+                ? 'burger-menu_bottom-button burger-menu_bottom-button--active'
+                : 'burger-menu_bottom-button'
+            )}
             onClick={() => closeMenu()}
           >
             <div className="burger-menu_button">
@@ -113,8 +133,12 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
           </NavLink>
 
           <NavLink
-            to="/cart"
-            className="burger-menu_bottom-button"
+            to="/shoppingBag"
+            className={({ isActive }) => (
+              isActive
+                ? 'burger-menu_bottom-button burger-menu_bottom-button--active'
+                : 'burger-menu_bottom-button'
+            )}
             onClick={() => closeMenu()}
           >
             <div className="burger-menu_button">

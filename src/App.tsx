@@ -7,7 +7,7 @@ import './styles/main.scss';
 import { HomePage } from './pages/HomePage/HomePage';
 import { PhonesPage } from './pages/PhonesPage/PhonesPage';
 import { FavouritesPage } from './pages/FavouritesPage/FavouritesPage';
-import { CartPage } from './pages/CartPage/CartPage';
+// import { CartPage } from './pages/CartPage/CartPage';
 
 import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';

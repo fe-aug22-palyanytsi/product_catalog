@@ -7,12 +7,14 @@ type Props = {
   buttonName: string;
   handleShop: () => void;
   isSelected: boolean;
+  isDisabled?: boolean;
 };
 
 export const Button: React.FC<Props> = ({
   buttonName,
   handleShop,
   isSelected,
+  isDisabled,
 }) => {
   const handleClick = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -31,6 +33,7 @@ export const Button: React.FC<Props> = ({
       })}
       type="button"
       onClick={handleClick}
+      disabled={isDisabled}
     >
       {buttonName}
     </button>

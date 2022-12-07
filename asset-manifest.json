@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.bac5572f.css",
-    "main.js": "/product_catalog/static/js/main.89c0d4f4.js",
+    "main.css": "/product_catalog/static/css/main.3848b4a5.css",
+    "main.js": "/product_catalog/static/js/main.202de45c.js",
     "static/media/promo-slider-2.jpg": "/product_catalog/static/media/promo-slider-2.72bd3ad074734a6a1db8.jpg",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.443fc83827bbdd265741a3ec0d34d99a.svg",
     "static/media/promo-slider-3.jpg": "/product_catalog/static/media/promo-slider-3.9d82b562e5e82b29a5e8.jpg",
@@ -21,13 +21,14 @@
     "static/media/Plus.svg": "/product_catalog/static/media/Plus.1360842dc46a5a04000d6466314f511f.svg",
     "static/media/Burger.svg": "/product_catalog/static/media/Burger.7d886604721a2522b7ee9d3609bcd8e8.svg",
     "static/media/ArrowTop.svg": "/product_catalog/static/media/ArrowTop.80e27a8f296e8f6d01b0495743a40009.svg",
+    "static/media/ArrowBack.svg": "/product_catalog/static/media/ArrowBack.e7e86408bcedf03dc9d5e8e6f2b8fbaa.svg",
     "static/media/promo-slider-arrow.svg": "/product_catalog/static/media/promo-slider-arrow.52b1de8135fb515af2ee.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.d40559547c358943a83bc9010e8fffed.svg",
-    "main.bac5572f.css.map": "/product_catalog/static/css/main.bac5572f.css.map",
-    "main.89c0d4f4.js.map": "/product_catalog/static/js/main.89c0d4f4.js.map"
+    "main.3848b4a5.css.map": "/product_catalog/static/css/main.3848b4a5.css.map",
+    "main.202de45c.js.map": "/product_catalog/static/js/main.202de45c.js.map"
   },
   "entrypoints": [
-    "static/css/main.bac5572f.css",
-    "static/js/main.89c0d4f4.js"
+    "static/css/main.3848b4a5.css",
+    "static/js/main.202de45c.js"
   ]
 }

@@ -33,7 +33,7 @@ export const ProductGallery: React.FC<Props> = ({ imagePathes }) => {
           {imagePathes.map(path => (
             <SwiperSlide key={path}>
               <img
-                src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${path}`}
+                src={`https://raw.githubusercontent.com/fe-aug22-palyanytsi/product_catalog_BE/main/public/${path}`}
                 alt=""
                 className="product-gallery__main-img"
               />
@@ -62,7 +62,7 @@ export const ProductGallery: React.FC<Props> = ({ imagePathes }) => {
             <SwiperSlide key={path} className="product-gallery__slide">
               <div className="product-gallery__item">
                 <img
-                  src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${path}`}
+                  src={`https://raw.githubusercontent.com/fe-aug22-palyanytsi/product_catalog_BE/main/public/${path}`}
                   alt=""
                   className="product-gallery__preview"
                 />

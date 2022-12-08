@@ -30,6 +30,8 @@ export const CustomPanel: React.FC<Props> = ({
   setSelectedColor,
 }) => {
   const {
+    setTotalPoduct,
+    totalProduct,
     favourites,
     setFavourites,
     shop,
@@ -40,35 +42,33 @@ export const CustomPanel: React.FC<Props> = ({
     setMemoryCapacity(capacity);
   };
 
+  const selectPhone = phones.find(phone => phone.phoneId === itemInfo?.id);
+
   const handleShop = () => {
-    if (shop.find((phone: Phone) => phone.phoneId === itemInfo?.id)) {
+    if (shop.find((phone: Phone) => phone.id === selectPhone?.id)) {
       const filtredStorageList = shop.filter(
-        (phone: Phone) => phone.phoneId !== itemInfo?.id,
+        (phone: Phone) => phone.id !== selectPhone?.id,
       );
 
+      setTotalPoduct(filtredStorageList);
       setShop(filtredStorageList);
     } else {
-      const findNewPhone = phones
-        .find((phone: Phone) => phone.phoneId === itemInfo?.id);
-
-      setShop([...shop, findNewPhone] as Phone[]);
+      setShop([...shop, selectPhone] as Phone[]);
+      setTotalPoduct([...totalProduct, selectPhone] as Phone[]);
     }
   };
 
   const handleFavourite = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    if (favourites.find((phone: Phone) => phone.phoneId === itemInfo?.id)) {
+    if (favourites.find((phone: Phone) => phone.id === selectPhone?.id)) {
       const filtredStorageList = favourites.filter(
-        (phone: Phone) => phone.phoneId !== itemInfo?.id,
+        (phone: Phone) => phone.id !== selectPhone?.id,
       );
 
       setFavourites(filtredStorageList);
     } else {
-      const findNewPhone = phones
-        .find((phone: Phone) => phone.phoneId === itemInfo?.id);
-
-      setFavourites([...favourites, findNewPhone] as Phone[]);
+      setFavourites([...favourites, selectPhone] as Phone[]);
     }
   };
 

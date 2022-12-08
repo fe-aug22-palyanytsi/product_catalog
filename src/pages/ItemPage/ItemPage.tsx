@@ -54,6 +54,10 @@ export const ItemPage = () => {
   const upperCasedColor = (
     selectedColor[0]?.toUpperCase() + selectedColor.slice(1)
   );
+  const category = phoneInfo ? phoneInfo.images[0].split('/')[1] : '';
+  const upperCategory = (
+    category[0]?.toUpperCase() + category.slice(1)
+  );
 
   if (hasError) {
     return (<Navigate to="/not-found" />);
@@ -66,7 +70,7 @@ export const ItemPage = () => {
           <Breadcrumbs
             breads={[
               { title: 'home', path: '/' },
-              { title: 'Phones', path: '/phones' },
+              { title: upperCategory, path: `/${category}` },
               { title: `${phoneInfo?.name} (iMT9G2FS/A)`, path: '/item' },
             ]}
           />

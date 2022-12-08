@@ -38,7 +38,7 @@ export const ItemPage = () => {
       setPhoneInfo(product);
       setMemory(product.capacity);
       setSelectedColor(product.color);
-      setItems(products.phones);
+      setItems([...products.phones, ...products.tablets]);
 
       setIsLoading(false);
     } catch (err: any) {

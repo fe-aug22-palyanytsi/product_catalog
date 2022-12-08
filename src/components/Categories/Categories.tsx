@@ -18,13 +18,13 @@ const CATEGORIES_STATIC = [
     src: categoryImgTablets,
     title: 'Tablets',
     path: 'tablets',
-    count: 24,
+    count: 6,
   },
   {
     src: categoryImgAccessories,
     title: 'Accessories',
     path: '/accessories',
-    count: 100,
+    count: 0,
   },
 ];
 

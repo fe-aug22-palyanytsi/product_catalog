@@ -26,7 +26,7 @@ export const CartPage = () => {
     setFullPrice(price);
   }, [shop]);
 
-  const handleCheckout = () => {};
+  const handleCheckout = () => { };
 
   return (
     <main className="cart-page">

@@ -1,3 +1,5 @@
+import { Phone } from '../types/Phone';
+
 const PRODUCTS_PATH = `${process.env.REACT_APP_API_PATH}/products`;
 
 export const getProductById = async (id: string) => {
@@ -23,6 +25,13 @@ export const getNewProducts = async () => {
 
 export const getClosestDiscountProducts = async () => {
   const response = await fetch(`${PRODUCTS_PATH}/discount`);
+  const products = await response.json();
+
+  return products;
+};
+
+export const getRecommendedProducts = async (): Promise<Phone[]> => {
+  const response = await fetch(`${PRODUCTS_PATH}/apple-iphone-11-256gb-green/recommended`);
   const products = await response.json();
 
   return products;

@@ -75,7 +75,7 @@ export const ProductCard: React.FC<Props> = ({
 
   return (
     <div className="productCard">
-      <NavLink to={`/product/${phoneId}`}>
+      <NavLink to={`/phones/${phoneId}`}>
         <img
           src={`https://raw.githubusercontent.com/fe-aug22-palyanytsi/product_catalog_BE/main/public/${image}`}
           alt="phone_img"
@@ -84,7 +84,7 @@ export const ProductCard: React.FC<Props> = ({
       </NavLink>
 
       <div className="productCard_block">
-        <NavLink to={`/product/${phoneId}`}>
+        <NavLink to={`/phones/${phoneId}`}>
           <p className="productCard_description">
             {`${phoneId.split('-').join(' ')} (iMT9G2FS/A)`}
           </p>

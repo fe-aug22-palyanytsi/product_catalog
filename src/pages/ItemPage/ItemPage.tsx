@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Navigate, useLocation, useSearchParams } from 'react-router-dom';
-import { getProductById, getProductsByQuery } from '../../api/products';
+import {
+  getProductById,
+  getProductsByQuery,
+  getRecommendedProducts,
+} from '../../api/products';
 
 import { Phone } from '../../types/Phone';
 import { PhoneExtended } from '../../types/PhoneExtended';
 import { AboutBlock } from '../../components/AboutBlock';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-// import { ProductGallery } from '../../components/ProductGallery';
+import { ProductGallery } from '../../components/ProductGallery';
 import { CustomPanel } from '../../components/CustomPanel';
 import { Loader } from '../../components/Loader';
 
 import './ItemPage.scss';
+import { ProductSlider } from '../../components/ProductsSlider';
 
 export const ItemPage = () => {
   const location = useLocation();
@@ -43,7 +49,7 @@ export const ItemPage = () => {
 
   useEffect(() => {
     getPhone();
-  }, []);
+  }, [location]);
 
   if (hasError) {
     return (<Navigate to="/not-found" />);
@@ -56,6 +62,7 @@ export const ItemPage = () => {
           <Breadcrumbs
             breads={[
               { title: 'home', path: '/' },
+              { title: 'Phones', path: '/phones' },
               { title: `${phoneInfo?.name} (iMT9G2FS/A)`, path: '/item' },
             ]}
           />
@@ -69,26 +76,54 @@ export const ItemPage = () => {
           )
           : (
             <div className="item-page_main">
+              <h1 className="item-page_title title title--xl text-reset">
+                {phoneInfo?.name}
+              </h1>
               <div className="item-page_visual-block">
-                {/* <ProductGallery
-                      imagePathes={phoneInfo?.images}
-                      selectedColor={selectedColor}
-                /> */}
-                <CustomPanel
-                  itemInfo={phoneInfo}
-                  buttonName="Add to cart"
-                  phones={items}
-                  memoryCapacity={memory}
-                  setMemoryCapacity={setMemory}
-                  selectedColor={selectedColor}
-                  setSelectedColor={setSelectedColor}
+                <div className="item-page_gallery">
+                  {phoneInfo
+                    ? (
+                      <ProductGallery
+                        imagePathes={phoneInfo.images}
+                      // selectedColor={selectedColor}
+                      />
+                    )
+                    : <Loader />}
+                </div>
+                <div className="item-page_panel">
+                  <CustomPanel
+                    itemInfo={phoneInfo}
+                    buttonName="Add to cart"
+                    phones={items}
+                    memoryCapacity={memory}
+                    setMemoryCapacity={setMemory}
+                    selectedColor={selectedColor}
+                    setSelectedColor={setSelectedColor}
+                  />
+                </div>
+              </div>
+
+              <div className="item-page_about">
+                <AboutBlock
+                  phoneExtended={phoneInfo}
+                  capacity={memory}
                 />
               </div>
 
-              <AboutBlock
-                phoneExtended={phoneInfo}
-                capacity={memory}
-              />
+              <div className="item-page_recommended">
+                <h2
+                  className="item-page_rec-title title title--l text-reset"
+                >
+                  You may also like
+                </h2>
+                <ProductSlider
+                  requestProducts={getRecommendedProducts}
+                  uniqueNavigationKeys={{
+                    next: uuidv4(),
+                    prev: uuidv4(),
+                  }}
+                />
+              </div>
             </div>
           )}
       </div>

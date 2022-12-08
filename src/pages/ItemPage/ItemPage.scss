@@ -1,3 +1,5 @@
+@import "../../styles/mixins.scss";
+
 .item-page {
   padding: 25px 0 80px 0;
 
@@ -12,11 +14,54 @@
 
 .item-page_visual-block {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+
+  @include onTablet {
+    flex-direction: row;
+  }
 }
 
 .item-page_panel {
-  z-index: 50;
+  width: 100%;
+
+  @include onTablet {
+    width: auto;
+    min-width: 30%;
+  }
+}
+.item-page_title {
+  margin-bottom: 32px;
+
+  @include onTablet {
+    margin-bottom: 50px;
+  }
+}
+.item-page_gallery {
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 40px;
+
+  @include onTablet {
+    width: 50%;
+    flex: 1 1 auto;
+    margin-right: 40px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    flex: 0 0 50%;
+  }
+}
+
+.item-page_about {
+  margin-bottom: 50px;
+
+  @include onTablet {
+    margin-bottom: 70px;
+  }
+}
+
+.item-page_rec-title {
+  margin-bottom: 24px;
 }

@@ -44,14 +44,17 @@ export const ProductGallery: React.FC<Props> = ({ imagePathes }) => {
       <div className="product-gallery__images">
         <Swiper
           onSwiper={(swiper) => setThumbsSwiper(swiper)}
-          spaceBetween={10}
           slidesPerView={5}
           freeMode
           modules={[FreeMode, Thumbs]}
           slideClass="product-gallery__slide"
           breakpoints={{
+            320: {
+              spaceBetween: 8,
+            },
             640: {
               direction: 'vertical',
+              spaceBetween: 10,
             },
           }}
         >

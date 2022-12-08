@@ -53,7 +53,7 @@ export const ProductCardShop: React.FC<Props> = ({ phoneInfo }) => {
     setTotalPoduct([...filterdListTotalProduct]);
   };
 
-  const totalPrice = price * counter;
+  const totalPrice = price * (counter || 1);
 
   return (
     <div className="productCardShop">

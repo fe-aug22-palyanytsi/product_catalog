@@ -51,6 +51,10 @@ export const ItemPage = () => {
     getPhone();
   }, [location]);
 
+  const upperCasedColor = (
+    selectedColor[0]?.toUpperCase() + selectedColor.slice(1)
+  );
+
   if (hasError) {
     return (<Navigate to="/not-found" />);
   }
@@ -77,7 +81,7 @@ export const ItemPage = () => {
           : (
             <div className="item-page_main">
               <h1 className="item-page_title title title--xl text-reset">
-                {phoneInfo?.name}
+                {`${phoneInfo?.name.split(' ').slice(0, -1).join(' ')} ${upperCasedColor}`}
               </h1>
               <div className="item-page_visual-block">
                 <div className="item-page_gallery">
@@ -85,7 +89,7 @@ export const ItemPage = () => {
                     ? (
                       <ProductGallery
                         imagePathes={phoneInfo.images}
-                      // selectedColor={selectedColor}
+                        selectedColor={selectedColor}
                       />
                     )
                     : <Loader />}

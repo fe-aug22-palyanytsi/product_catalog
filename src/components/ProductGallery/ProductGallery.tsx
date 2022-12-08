@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FreeMode, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -7,20 +7,27 @@ import 'swiper/scss/navigation';
 
 import './ProductGallery.scss';
 
-// const imagePathesStatic = [
-//   'img/phones/apple-iphone-11/black/00.jpg',
-//   'img/phones/apple-iphone-11/black/01.jpg',
-//   'img/phones/apple-iphone-11/black/02.jpg',
-//   'img/phones/apple-iphone-11/black/03.jpg',
-//   'img/phones/apple-iphone-11/black/04.jpg',
-// ];
-
 type Props = {
   imagePathes: Array<string>;
+  selectedColor: string;
 };
 
-export const ProductGallery: React.FC<Props> = ({ imagePathes }) => {
+export const ProductGallery: React.FC<Props> = ({
+  imagePathes,
+  selectedColor,
+}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [pathes, setPathes] = useState(imagePathes);
+
+  useEffect(() => {
+    const newPathes = pathes.map(path => {
+      const prevColour = path.split('/')[3];
+
+      return path.replace(prevColour, selectedColor);
+    });
+
+    setPathes(newPathes);
+  }, [selectedColor]);
 
   return (
     <div className="product-gallery">
@@ -30,7 +37,7 @@ export const ProductGallery: React.FC<Props> = ({ imagePathes }) => {
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Thumbs]}
         >
-          {imagePathes.map(path => (
+          {pathes.map(path => (
             <SwiperSlide key={path}>
               <img
                 src={`https://raw.githubusercontent.com/fe-aug22-palyanytsi/product_catalog_BE/main/public/${path}`}
@@ -58,7 +65,7 @@ export const ProductGallery: React.FC<Props> = ({ imagePathes }) => {
             },
           }}
         >
-          {imagePathes.map(path => (
+          {pathes.map(path => (
             <SwiperSlide key={path} className="product-gallery__slide">
               <div className="product-gallery__item">
                 <img

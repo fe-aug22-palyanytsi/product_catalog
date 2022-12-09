@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useSearchParams } from 'react-router-dom';
+import { SingleValue } from 'react-select';
 import { getProductsByQuery } from '../../api/products';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
@@ -10,6 +11,7 @@ import { Phone } from '../../types/Phone';
 import { Loader } from '../../components/Loader/Loader';
 
 import './TabletPage.scss';
+import { SelectOptions } from '../../types/SelectOptions';
 
 const sortOptions = [
   { value: 'newest', label: 'Newest' },
@@ -41,14 +43,12 @@ export const TabletPage = () => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleOnSortSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSort(event.target.value);
+  const handleOnSortSelect = (option: SingleValue<SelectOptions>) => {
+    setSort(option?.value || 'newest');
   };
 
-  const handleOnPerPageSelect = (
-    event: React.ChangeEvent<HTMLSelectElement>,
-  ) => {
-    setPerPage(event.target.value);
+  const handleOnPerPageSelect = (option: SingleValue<SelectOptions>) => {
+    setPerPage(option?.value || 'all');
     setPage(1);
   };
 
@@ -120,14 +120,12 @@ export const TabletPage = () => {
         <div className="tablet-page__selects">
           <CustomSelect
             selectLabel="Sort by"
-            defaultValue="Choose sorting type"
             options={sortOptions}
             selected={sort}
             handleOnSelect={handleOnSortSelect}
           />
           <CustomSelect
             selectLabel="Items on page"
-            defaultValue="Choose items amount"
             options={perPageOptions}
             selected={perPage}
             handleOnSelect={handleOnPerPageSelect}

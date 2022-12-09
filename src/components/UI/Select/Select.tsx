@@ -1,41 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Select, { SingleValue } from 'react-select';
 import { SelectOptions } from '../../../types/SelectOptions';
 
 import './Select.scss';
 
 type Props = {
-  options: SelectOptions;
-  defaultValue: string;
+  options: SelectOptions[];
   selectLabel: string;
   selected: string;
-  handleOnSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleOnSelect: (option: SingleValue<SelectOptions>) => void;
 };
 
 export const CustomSelect: React.FC<Props> = ({
-  defaultValue,
   options,
   selectLabel,
   selected,
   handleOnSelect,
 }) => {
+  const [sorting, setSorting] = useState<SelectOptions>(options[0]);
+
+  useEffect(() => {
+    const method = options.find(item => item.value === selected) || options[0];
+
+    setSorting(method);
+  }, [selected]);
+
   return (
     <label className="select">
       <span className="select__label text text--secondary">{selectLabel}</span>
-      <select
+      <Select
         data-cy="userSelect"
-        className="select__field"
         id="select"
-        onChange={handleOnSelect}
-        value={selected}
-      >
-        <option value="0" disabled>
-          {defaultValue}
-        </option>
-
-        {options.map(({ value, label }) => (
-          <option value={value} key={value}>{label}</option>
-        ))}
-      </select>
+        classNamePrefix="select"
+        options={options}
+        placeholder={sorting.label}
+        onChange={
+          (option: SingleValue<SelectOptions>) => handleOnSelect(option)
+        }
+        value={sorting}
+        isSearchable={false}
+      />
     </label>
   );
 };

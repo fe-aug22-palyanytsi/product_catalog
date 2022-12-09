@@ -1,3 +1,4 @@
-export type SelectOptions = Array<{
-  value: string, label: string
-}>;
+export interface SelectOptions {
+  value: string;
+  label: string;
+}

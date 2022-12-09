@@ -53,7 +53,7 @@ export const ProductCardShop: React.FC<Props> = ({ phoneInfo }) => {
     setTotalPoduct([...filterdListTotalProduct]);
   };
 
-  const totalPrice = price * counter;
+  const totalPrice = price * (counter || 1);
 
   return (
     <div className="productCardShop">
@@ -71,7 +71,7 @@ export const ProductCardShop: React.FC<Props> = ({ phoneInfo }) => {
 
         <NavLink to="/" className="productCardShop_info link-reset">
           <img
-            src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${image}`}
+            src={`https://raw.githubusercontent.com/fe-aug22-palyanytsi/product_catalog_BE/main/public/${image}`}
             alt="phone_img"
             className="productCardShop_image"
           />

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './CartItem.scss';
+import { NavLink } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 
 import Cross from '../../assets/img/Icons/Cross.svg';

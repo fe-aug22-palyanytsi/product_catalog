@@ -8,9 +8,11 @@ export const ProductListShop: React.FC = () => {
 
   return (
     <div className="productListShop">
-      {shop.map(poduct => (
-        <ProductCardShop phoneInfo={poduct} key={poduct.id} />
-      ))}
+      {shop.length
+        ? shop.map(poduct => (
+          <ProductCardShop phoneInfo={poduct} key={poduct.id} />
+        ))
+        : <h2 className="title title--l text-reset">Cart is empty</h2>}
     </div>
   );
 };

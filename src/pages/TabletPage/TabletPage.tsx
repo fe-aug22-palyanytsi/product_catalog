@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate, useSearchParams } from 'react-router-dom';
-import { SingleValue } from 'react-select';
 import { getProductsByQuery } from '../../api/products';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ItemsQuantity } from '../../components/ItemsQuantity';
@@ -10,8 +9,7 @@ import { CustomSelect } from '../../components/UI/Select';
 import { Phone } from '../../types/Phone';
 import { Loader } from '../../components/Loader/Loader';
 
-import './PhonesPage.scss';
-import { SelectOptions } from '../../types/SelectOptions';
+import './TabletPage.scss';
 
 const sortOptions = [
   { value: 'newest', label: 'Newest' },
@@ -27,10 +25,10 @@ const perPageOptions = [
   { value: '16', label: '16' },
 ];
 
-export const PhonesPage = () => {
+export const TabletPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [phones, setPhones] = useState<Phone[]>([]);
-  const [phonesLength, setPhonesLength] = useState(0);
+  const [tablets, setTablets] = useState<Phone[]>([]);
+  const [tabletsLength, setTabletsLength] = useState(0);
   const [sort, setSort] = useState(
     searchParams.get('sort') || 'newest',
   );
@@ -43,12 +41,14 @@ export const PhonesPage = () => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleOnSortSelect = (option: SingleValue<SelectOptions>) => {
-    setSort(option?.value || 'newest');
+  const handleOnSortSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSort(event.target.value);
   };
 
-  const handleOnPerPageSelect = (option: SingleValue<SelectOptions>) => {
-    setPerPage(option?.value || 'all');
+  const handleOnPerPageSelect = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    setPerPage(event.target.value);
     setPage(1);
   };
 
@@ -62,8 +62,8 @@ export const PhonesPage = () => {
 
       const products = await getProductsByQuery(searchParams.toString());
 
-      setPhones(products.phones);
-      setPhonesLength(products.phonesLength);
+      setTablets(products.tablets);
+      setTabletsLength(products.tabletsLength);
       setIsLoading(false);
     } catch (err: any) {
       setHasError(true);
@@ -98,34 +98,36 @@ export const PhonesPage = () => {
   }
 
   return (
-    <section className="phones-page">
+    <section className="tablet-page">
       <div className="container">
-        <div className="phones-page__breadcrumbs">
+        <div className="tablet-page__breadcrumbs">
           <Breadcrumbs
             breads={[
               { title: 'home', path: '/' },
-              { title: 'Phones', path: '/phones' },
+              { title: 'Tablets', path: '/tablets' },
             ]}
           />
         </div>
 
-        <h1 className="phones-page__title title title--xl text-reset">
-          Mobile phones
+        <h1 className="tablet-page__title title title--xl text-reset">
+          Tablets
         </h1>
 
-        <div className="phones-page__quantity">
-          <ItemsQuantity amount={phonesLength} itemName="models" />
+        <div className="tablet-page__quantity">
+          <ItemsQuantity amount={tabletsLength} itemName="models" />
         </div>
 
-        <div className="phones-page__selects">
+        <div className="tablet-page__selects">
           <CustomSelect
             selectLabel="Sort by"
+            defaultValue="Choose sorting type"
             options={sortOptions}
             selected={sort}
             handleOnSelect={handleOnSortSelect}
           />
           <CustomSelect
             selectLabel="Items on page"
+            defaultValue="Choose items amount"
             options={perPageOptions}
             selected={perPage}
             handleOnSelect={handleOnPerPageSelect}
@@ -134,19 +136,19 @@ export const PhonesPage = () => {
 
         {isLoading
           ? (
-            <div className="phones-page__loader">
+            <div className="tablet-page__loader">
               <Loader />
             </div>
           )
           : (
             <>
-              <div className="phones-page__list">
-                <PhoneList phones={phones} />
+              <div className="tablet-page__list">
+                <PhoneList phones={tablets} />
               </div>
 
               {!Number.isNaN(+perPage) && (
                 <Pagination
-                  total={phonesLength}
+                  total={tabletsLength}
                   perPage={+perPage}
                   onPageChange={handlePageChange}
                   currentPage={page}

@@ -5,7 +5,7 @@ import arrow from '../../assets/img/Icons/ArrowBack.svg';
 import { ProductListShop } from '../../components/ProductListShop';
 import { Checkout } from '../../components/Checkout';
 
-export const Shop:React.FC = () => {
+export const Shop: React.FC = () => {
   return (
     <section className="shop">
       <div className="container shop_container">
@@ -17,7 +17,7 @@ export const Shop:React.FC = () => {
         </Link>
 
         <h1 className="shop_title title title--xl text-reset">
-          Card
+          Cart
         </h1>
 
         <div className="shop_content">
